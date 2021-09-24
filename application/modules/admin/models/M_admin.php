@@ -24,6 +24,13 @@ class M_admin extends CI_Model {
 		return $query->result_array();
 	}
 
+	function get_all_kecamatan()
+	{
+		$this->db->order_by('kode_kecamatan', 'asc');
+		$query = $this->db->get('tbl_kecamatan');
+		return $query->result_array();
+	}
+
 	function get($table)
 	{
 		$query = $this->db->get($table);

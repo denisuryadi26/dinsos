@@ -77,6 +77,8 @@ $route['admin-formulir-type.html'] = 'admin/C_formulir/type_view';
 $route['admin-formulir-jenis.html'] = 'admin/C_formulir/jenis_view';
 $route['admin-daftar-user.html'] = 'admin/C_master/view_user';
 $route['admin-daftar-admin.html'] = 'admin/C_master/view_admin';
+$route['admin-daftar-kecamatan.html'] = 'admin/C_master/view_kecamatan';
+$route['admin-daftar-kelurahan.html'] = 'admin/C_master/view_kelurahan';
 $route['admin-pengajuan-diproses.html'] = 'admin/C_pengajuan/index_diproses';
 $route['admin-pengajuan-diterima.html'] = 'admin/C_pengajuan/index_diterima';
 $route['admin-pengajuan-ditolak.html'] = 'admin/C_pengajuan/index_ditolak';
@@ -97,10 +99,17 @@ $route['add-data-admin.json'] = 'admin/C_master/tambah_data_admin';
 $route['update-data-admin.json'] = 'admin/C_master/ubah_data_admin';
 $route['delete-data-admin.json'] = 'admin/C_master/hapus_data_admin';
 
-$route['delete-data-user.json'] = 'admin/C_master/hapus_data_user';
-
 $route['get-all-user.json'] = 'admin/C_master/get_all_user';
 $route['get-user.json'] = 'admin/C_master/get_user';
+$route['add-data-user.json'] = 'login/C_login/register';
+$route['update-data-user.json'] = 'admin/C_master/ubah_data_user';
+$route['delete-data-user.json'] = 'admin/C_master/hapus_data_user';
+
+$route['get-all-kecamatan.json'] = 'admin/C_master/get_all_kecamatan';
+$route['get-kecamatan.json'] = 'admin/C_master/get_kecamatan';
+$route['add-data-kecamatan.json'] = 'admin/C_master/tambah_data_kecamatan';
+$route['update-data-kecamatan.json'] = 'admin/C_master/ubah_data_kecamatan';
+$route['delete-data-kecamatan.json'] = 'admin/C_master/hapus_data_kecamatan';
 
 $route['get-all-pengajuan.json'] = 'admin/C_pengajuan/get_all_pengajuan';
 $route['admin-tolak-pengajuan.json'] = 'admin/C_pengajuan/tolak_pengajuan';

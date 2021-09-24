@@ -75,9 +75,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url() ?>" class="nav-link">
+            <a href="<?= base_url() ?>admin-daftar-kecamatan.html" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
-              <p>Website</p>
+              <p>Kecamatan</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url() ?>admin-daftar-kelurahan.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Kelurahan</p>
             </a>
           </li>
         </ul>

@@ -10,7 +10,7 @@ class C_master extends CI_Controller {
 			redirect('user-login.html','refresh');
 		}
 		$this->load->model('M_admin', 'admin');
-		$this->load->library('template');	
+		$this->load->library('template');
 	}
 
 	public function view_user()
@@ -28,6 +28,15 @@ class C_master extends CI_Controller {
 		$data['title'] = 'Daftar Admin';
 		$data['js'] = 'admin/js_admin';
 		$data['content'] = 'admin/admin';
+		$this->load->view('template/template', $data);
+	}
+
+	public function view_kecamatan()
+	{
+		$data = $this->template->adminlte();
+		$data['title'] = 'Daftar Kecamatan';
+		$data['js'] = 'admin/js_kecamatan';
+		$data['content'] = 'admin/kecamatan';
 		$this->load->view('template/template', $data);
 	}
 
@@ -215,23 +224,130 @@ class C_master extends CI_Controller {
 		echo json_encode($response);
 	}
 
+	// public function tambah_data_user()
+	// {
+	// 	$this->template->_is_ajax();
+	// 	$config['upload_path'] = './uploads/pictures/';
+    //     $config['allowed_types'] = 'jpg|png';
+    //     $config['encrypt_name'] = true;
+    //     $this->load->library('upload', $config);
+
+	// 	$data = [
+	// 		'user_nik' => $this->input->post('nik'),
+	// 		'user_instansi' => $this->input->post('instansi'),
+	// 		'user_nama' => $this->input->post('nama'),
+	// 		'user_tempat' => $this->input->post('tempat'),
+	// 		'user_tanggal' => date('Y-m-d', strtotime($this->input->post('tanggal'))),
+	// 		'user_alamat' => $this->input->post('alamat'),
+	// 		'user_kelamin' => $this->input->post('kelamin'),
+	// 		'user_agama' => $this->input->post('agama'),
+	// 		'user_status' => $this->input->post('status'),
+	// 		'user_pekerjaan' => $this->input->post('pekerjaan'),
+	// 		'user_kebangsaan' => $this->input->post('kebangsaan'),
+	// 		'user_email' => $this->input->post('email'),
+	// 		'user_nohp' => $this->input->post('nohp'),
+	// 		'user_password' => $this->input->post('password')
+	// 	];
+	// 	$cek = $this->login->get_where_row('tbl_user', ['user_nik' => $data['user_nik']]);
+	// 	if ($cek['user_nik'] === $data['user_nik']) {
+	// 		$response = [
+	// 			'status' => false,
+	// 			'title' => 'Gagal',
+	// 			'message' => 'Pendaftaran gagal! NIK anda sudah terdaftar.'
+	// 		];
+	// 	}else{
+	// 		if ($data['user_kelamin'] == 'Laki-laki') {
+	// 			$foto = [
+	// 				'user_foto' => 'cowok.png'
+	// 			];
+	// 		}else{
+	// 			$foto = [
+	// 				'user_foto' => 'cewek.png'
+	// 			];
+	// 		}
+	// 		$data = array_merge($data, $foto);
+	// 		$tambah = $this->login->insert('tbl_user', $data);
+	// 		if ($tambah) {
+	// 			$response = [
+	// 				'status' => true,
+	// 				'title' => 'Berhasil',
+	// 				'message' => 'Pendaftaran berhasil!'
+	// 			];
+	// 		}else{
+	// 			$response = [
+	// 				'status' => false,
+	// 				'title' => 'Gagal',
+	// 				'message' => 'Pendaftaran gagal! Silahkan ulangi beberapa saat lagi'
+	// 			];
+	// 		}
+	// 	}
+	// 	echo json_encode($response);
+	// }
+
+	public function ubah_data_user()
+	{
+		$this->template->_is_ajax();
+		$config['upload_path'] = './uploads/pictures/';
+        $config['allowed_types'] = 'jpg|png';
+        $config['encrypt_name'] = true;
+        $this->load->library('upload', $config);
+
+		$data = [
+			'user_nik' => $this->input->post('e-nik'),
+			'user_instansi' => $this->input->post('e-instansi'),
+			'user_nama' => $this->input->post('e-nama'),
+			'user_tempat' => $this->input->post('e-tempat'),
+			'user_tanggal' => date('Y-m-d', strtotime($this->input->post('e-tanggal'))),
+			'user_alamat' => $this->input->post('e-alamat'),
+			'user_kelamin' => $this->input->post('e-kelamin'),
+			'user_agama' => $this->input->post('e-agama'),
+			'user_status' => $this->input->post('e-status'),
+			'user_pekerjaan' => $this->input->post('e-pekerjaan'),
+			'user_kebangsaan' => $this->input->post('e-kebangsaan'),
+			'user_email' => $this->input->post('e-email'),
+			'user_nohp' => $this->input->post('e-nohp'),
+			'user_password' => $this->input->post('e-password')
+		];
+		if($this->upload->do_upload('e-foto')){
+			$foto = [
+				'user_foto' => $this->upload->data('file_name')
+			];
+			$data = array_merge($data, $foto);
+		}
+		$ubah = $this->admin->update('tbl_user', $data, ['user_nik' => $this->input->post('e-user_nik')]);
+		if ($ubah) {
+			$response = [
+				'status' => true,
+				'title' => 'Berhasil',
+				'message' => 'Berhasil mengubah data!'
+			];
+		}else{
+			$response = [
+				'status' => false,
+				'title' => 'Gagal',
+				'message' => 'Gagal mengubah data! Silahkan ulangi beberapa saat lagi'
+			];
+		}
+		echo json_encode($response);
+	}
+
 	public function hapus_data_user()
     {
         $this->template->_is_ajax();
-        
+
         $where = [
             'user_nik' => $this->input->post('id')
                                 ];
-                                
+
         // Cek Nik Di Tabel Pengajuan
         $pengajuan            = $this->admin->get_where('tbl_pengajuan', ['user_nik'  => $where['user_nik']]);
-                
+
         // Cek Code Pengajuan Berdasar NIK
         $pengajuankode        = $this->admin->get_where('tbl_pengajuan_detail', ['pengajuan_code'  => $pengajuan[0]['pengajuan_code']]);
-                
+
         // Hapus Pengajuan Detail
         $hapusPengajuanDetail = $this->admin->delete('tbl_pengajuan_detail', ['pengajuan_code'  => $pengajuankode[0]['pengajuan_code']]);
-                
+
         // Hapus Pengajuan
         $hapusPengajuan       = $this->admin->delete('tbl_pengajuan', ['user_nik'  => $where['user_nik']]);
 
@@ -252,6 +368,153 @@ class C_master extends CI_Controller {
         }
         echo json_encode($response);
     }
+
+	public function get_all_kecamatan()
+	{
+		$this->template->_is_ajax();
+		$result = $this->admin->get_all_kecamatan();
+
+		if (empty($result)) {
+			$response = [
+				'status' => false,
+				'message' => 'Tidak ada data!'
+			];
+		}else{
+			$response = [
+				'status' => true,
+				'data' => $result
+			];
+		}
+
+		echo json_encode($response);
+	}
+
+	public function get_kecamatan()
+	{
+		$this->template->_is_ajax();
+		$result = $this->admin->get_where_row('tbl_kecamatan', ['kode_kecamatan' => $this->input->get('kode_kecamatan')]);
+		if (empty($result)) {
+			$response = [
+				'status' => false,
+				'message' => 'Tidak ada data!'
+			];
+		}else{
+			$response = [
+				'status' => true,
+				'data' => $result
+			];
+		}
+
+		echo json_encode($response);
+	}
+
+	public function tambah_data_kecamatan()
+	{
+		$this->template->_is_ajax();
+		$config['upload_path'] = './uploads/document/';
+        $config['allowed_types'] = '*';
+        $this->load->library('upload', $config);
+
+		$data = [
+			'kode_kecamatan' => $this->input->post('kode_kecamatan'),
+			'nama_kecamatan' => $this->input->post('nama_kecamatan')
+		];
+		$cek = $this->admin->get_where_row('tbl_kecamatan', ['kode_kecamatan' => $data['kode_kecamatan']]);
+		if ($cek['kode_kecamatan'] === $data['kode_kecamatan']) {
+			$response = [
+				'status' => false,
+				'title' => 'Gagal',
+				'message' => 'Gagal menambah data! Code sudah digunakan'
+			];
+		}else{
+			if($this->upload->do_upload('file')){
+				$foto = [
+					'photo_kecamatan' => $this->upload->data('file_name')
+				];
+				$data = array_merge($data, $foto);
+				chmod($this->upload->data('full_path'), 0777);
+			}
+			$tambah = $this->admin->insert('tbl_kecamatan', $data);
+			if ($tambah) {
+				$response = [
+					'status' => true,
+					'title' => 'Berhasil',
+					'message' => 'Berhasil menambah data!'
+				];
+			}else{
+				$response = [
+					'status' => false,
+					'title' => 'Gagal',
+					'message' => 'Gagal menambah data! Silahkan ulangi beberapa saat lagi'
+				];
+			}
+		}
+		echo json_encode($response);
+	}
+
+	public function ubah_data_kecamatan()
+	{
+		$this->template->_is_ajax();
+		$config['upload_path'] = './uploads/document/';
+        $config['allowed_types'] = '*';
+        $this->load->library('upload', $config);
+        $data = [
+			'kode_kecamatan' => $this->input->post('e-kode'),
+			'nama_kecamatan' => $this->input->post('e-nama')
+		];
+		if($this->upload->do_upload('e-file')){
+			$foto = [
+				'photo_kecamatan' => $this->upload->data('file_name')
+			];
+			$data = array_merge($data, $foto);
+			chmod($this->upload->data('full_path'), 0777);
+		}
+		$update = $this->admin->update('tbl_kecamatan', $data, ['kode_kecamatan' => $data['kode_kecamatan']]);
+		if ($update) {
+			$response = [
+				'status' => true,
+				'title' => 'Berhasil',
+				'message' => 'Berhasil mengubah data!'
+			];
+		}else{
+			$response = [
+				'status' => false,
+				'title' => 'Gagal',
+				'message' => 'Gagal mengubah data! Silahkan ulangi beberapa saat lagi'
+			];
+		}
+		echo json_encode($response);
+	}
+
+	public function hapus_data_kecamatan()
+	{
+		$this->template->_is_ajax();
+		$where = [
+			'formulir_code' => $this->input->post('id')
+		];
+		$hapus = $this->admin->delete('tbl_formulir', $where);
+		if ($hapus) {
+			$response = [
+				'status' => true,
+				'title' => 'Berhasil',
+				'message' => 'Berhasil menghapus data!'
+			];
+		}else{
+			$response = [
+				'status' => false,
+				'title' => 'Gagal',
+				'message' => 'Gagal menghapus data! Silahkan ulangi beberapa saat lagi'
+			];
+		}
+		echo json_encode($response);
+	}
+
+	public function download_pohoto_kecamatan()
+	{
+		$this->load->helper('download');
+		force_download('./uploads/document/' . $this->input->get('file'), NULL);
+		exit();
+	}
 
 
 }

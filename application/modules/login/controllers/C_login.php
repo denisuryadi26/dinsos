@@ -34,7 +34,7 @@ class C_login extends CI_Controller {
 	public function auth_user()
 	{
 		$this->template->_is_ajax();
-		
+
 		$where = [
 			'user_nik' => $this->input->post('nik'),
 			'user_password' => $this->input->post('password')
@@ -63,7 +63,7 @@ class C_login extends CI_Controller {
 	public function auth_admin()
 	{
 		$this->template->_is_ajax();
-		
+
 		$where = [
 			'admin_email' => $this->input->post('email'),
 			'admin_password' => $this->input->post('password')
@@ -93,6 +93,7 @@ class C_login extends CI_Controller {
 	{
 		$data = [
 			'user_nik' => $this->input->post('nik'),
+			'user_instansi' => $this->input->post('instansi'),
 			'user_nama' => $this->input->post('nama'),
 			'user_tempat' => $this->input->post('tempat'),
 			'user_tanggal' => date('Y-m-d', strtotime($this->input->post('tanggal'))),

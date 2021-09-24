@@ -36,6 +36,14 @@
           <input type="number" name="nik" id="nik" class="form-control" placeholder="Masukan NIK" required autocomplete="off">
         </div>
         <div class="form-group">
+          <label for="instansi">Instansi</label>
+          <select name="instansi" id="instansi" class="form-control" required>
+            <option value="">Silahkan Pilih Instansi</option>
+            <option value="Kel. 1">Kel. 1</option>
+            <option value="Kel. 2">Kel. 2</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="nama">Nama</label>
           <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukan Nama" required autocomplete="off">
         </div>
@@ -61,11 +69,23 @@
         </div>
         <div class="form-group">
           <label for="agama">Agama</label>
-          <input type="text" name="agama" id="agama" class="form-control" placeholder="Masukan Agama" required autocomplete="off">
+          <select name="agama" id="agama" class="form-control" required>
+            <option value="">Silahkan Pilih Agama</option>
+            <option value="Islam">Islam</option>
+            <option value="Protestan">Protestan</option>
+            <option value="Katolik">Katolik</option>
+            <option value="Hindu">Hindu</option>
+            <option value="Buddha">Buddha</option>
+            <option value="Khonghucu">Khonghucu</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="status">Status</label>
-          <input type="text" name="status" id="status" class="form-control" placeholder="Masukan Status" required autocomplete="off">
+          <select name="status" id="status" class="form-control" required>
+            <option value="">Silahkan Pilih Status</option>
+            <option value="Kawin">Kawin</option>
+            <option value="Belum Kawin">Belum Kawin</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="pekerjaan">Pekerjaan</label>
@@ -73,7 +93,11 @@
         </div>
         <div class="form-group">
           <label for="kebangsaan">Kebangsaan</label>
-          <input type="text" name="kebangsaan" id="kebangsaan" class="form-control" placeholder="Masukan Kebangsaan" required autocomplete="off">
+          <select name="kebangsaan" id="kebangsaan" class="form-control" required>
+            <option value="">Silahkan Pilih Kebangsaan</option>
+            <option value="WNI">WNI</option>
+            <option value="WNA">WNA</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="email">Email</label>

@@ -19,7 +19,8 @@
 	<nav class="navbar navbar-light bg-warning static-top">
 		<div class="container">
 			<a class="navbar-brand text-white" href="#">DINAS SOSIAL</a>
-			<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk</a>
+			<!-- <a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk Sebagai Kelurahan</a> -->
+			<a class="btn btn-primary" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Dinas Sosial</a>
 		</div>
 	</nav>
 
@@ -28,7 +29,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-9 mx-auto">
-					<h3 class="">Selamat datang di Sistem Pengajuan Online BC Atambua</h3>
+					<h3 class="">Selamat datang di Sistem Pengajuan Kelurahan</h3>
+					<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk User Kelurahan</a>
 					<p>Sudah mengajukan permohonan ? Cek disini</p>
 				</div>
 				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
@@ -96,7 +98,7 @@
 				<div class="col-lg-6 col-12">
 					<div class="card">
 						<div class="card-header">
-							<h5>Prosedur Pengajuan Izin Timbun</h5>
+							<h5>Prosedur Pengajuan Izin</h5>
 						</div>
 						<div class="card-body">
 							<div class="row">
