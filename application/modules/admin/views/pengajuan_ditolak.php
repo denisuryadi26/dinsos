@@ -22,6 +22,7 @@
 				              		<th>No</th>
 				              		<th>Code</th>
 				              		<th>Tipe</th>
+				              		<th>Tgl Pengajuan</th>
 				              		<th>#</th>
 				              	</thead>
 				              </table>

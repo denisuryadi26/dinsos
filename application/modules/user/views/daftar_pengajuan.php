@@ -25,6 +25,7 @@
 				              		<th>No</th>
 				              		<th>Code Pengajuan</th>
 				              		<th>Jenis Pengajuan</th>
+				              		<th>Tgl Pengajuan</th>
 				              		<th>Status</th>
 				              		<th>#</th>
 				              	</thead>

@@ -27,8 +27,9 @@
 							0: no,
 							1: data['pengajuan_code'],
 							2: data['formulir_deskripsi'],
-							3: '<a href="admin-pengajuan-detail.html?code='+ data['pengajuan_code'] +'" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i> Detail</a>'+
-								' &nbsp;<a href="admin-pengajuan-revisi.html?code='+ data['pengajuan_code'] +'" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Revisi</a>'
+							3: data['pengajuan_tgl'],
+							4: '<a href="admin-pengajuan-detail.html?code='+ data['pengajuan_code'] +'" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i></a>'+
+								' &nbsp;<a href="admin-pengajuan-revisi.html?code='+ data['pengajuan_code'] +'" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>'
 						};
 						if (status == 'diproses') {
 							tbl_proses.row.add(hasil).draw();
