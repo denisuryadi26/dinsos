@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>DINAS SOSIAL</title>
+	<title>SISTEM LAYANAN ONLINE DINSOS PSP</title>
 	<!-- Bootstrap core CSS -->
 	<link href="<?= base_url('template/landing-page/') ?>vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,21 +16,24 @@
 	<link href="<?= base_url('template/landing-page/') ?>css/landing-page.min.css" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-light bg-warning static-top">
+	<nav class="navbar navbar-light bg-danger static-top">
 		<div class="container">
-			<a class="navbar-brand text-white" href="#">DINAS SOSIAL</a>
+			<a class="navbar-brand text-white" href="#">DINSOS KOTA PADANGSIDIMPUAN</a>
 			<!-- <a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk Sebagai Kelurahan</a> -->
-			<a class="btn btn-primary" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Dinas Sosial</a>
+			<a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a>
 		</div>
 	</nav>
 
 	<header class="masthead text-white text-center">
-		<div class="overlay"></div>
+		<div class="light"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-9 mx-auto">
-					<h3 class="">Selamat datang di Sistem Pengajuan Kelurahan</h3>
-					<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk User Kelurahan</a>
+				    <p></p>
+
+					 <h3 class="">Selamat Datang di Aplikasi Sistem Layanan Online</h3>
+					<p><h3 class="">SALAK MANIS BERDAHAN</h3></p>
+					<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk Sebagai User Desa/Kelurahan</a>
 					<p>Sudah mengajukan permohonan ? Cek disini</p>
 				</div>
 				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
@@ -48,7 +51,7 @@
 			</div>
 		</div>
 	</header>
-	<h3 class="text-center mt-3">Tentang Aplikasi</h3>
+	<!-- <h3 class="text-center mt-3">Tentang Aplikasi</h3>
 	<section class="features-icons bg-light" style="margin-top: -70px;">
 		<div class="container">
 			<div class="row">
@@ -86,7 +89,7 @@
 					 <p>Bpjs Kesehatan (Dinas Kesehatan)</p>
 					 <p>Bpjs Ketenagakerjaan (Disnaker)</p>
 					 <p>Surat Pernyataan Pengelola Lingkungan</p> -->
-								</div>
+								<!-- </div>
 
 
 
@@ -156,7 +159,7 @@
 
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<footer class="footer bg-dark">
 		<div class="container">
@@ -166,16 +169,17 @@
 				</div>
 				<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
 					<ul class="list-inline mb-0">
+					<li class="list-inline-item mr-3">
+							<a href="https://dinsos.padangsidimpuankota.com/">
+							<i class="fa fa-globe fa-2x fa-fw"></i>
+							</a>
+						</li>
 						<li class="list-inline-item mr-3">
-							<a href="#">
+							<a href="https://www.facebook.com/Dinsos-psp-104124395351019/">
 							<i class="fab fa-facebook fa-2x fa-fw"></i>
 							</a>
 						</li>
-						<li class="list-inline-item mr-3">
-							<a href="#">
-							<i class="fab fa-twitter-square fa-2x fa-fw"></i>
-							</a>
-						</li>
+
 						<li class="list-inline-item">
 							<a href="#">
 							<i class="fab fa-instagram fa-2x fa-fw"></i>

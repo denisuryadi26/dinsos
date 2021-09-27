@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="https://www.javavbphp.com/" target="_blank"><b>Apps</b></a>
+    <a href="https://www.javavbphp.com/" target="_blank"><b>Login User</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -56,9 +56,9 @@
       <!-- <p class="mb-1">
         <a href="forgot-password.html">I forgot my password</a>
       </p> -->
-      <p class="mb-0 mt-3 text-right">
+      <!-- <p class="mb-0 mt-3 text-right">
         <a href="<?= base_url() ?>pendaftaran-user.html" class="text-center">Belum punya akun? Silahkan hubungi petugas</a>
-      </p>
+      </p> -->
     </div>
     <!-- /.login-card-body -->
   </div>

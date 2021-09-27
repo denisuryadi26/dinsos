@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="https://www.javavbphp.com/" target="_blank"><b>Apps</b></a>
+    <a href="https://www.javavbphp.com/" target="_blank"><b>Login Admin Dinas Sosial</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
