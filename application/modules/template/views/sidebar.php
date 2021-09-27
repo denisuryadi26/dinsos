@@ -104,12 +104,12 @@
       </li>
 
       <?php endif ?>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a href="<?= base_url() ?>logout.html" class="nav-link">
           <i class="nav-icon fas fa-power-off"></i>
           <p>Logout</p>
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
 

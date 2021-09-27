@@ -49,6 +49,7 @@ class C_login extends CI_Controller {
 				'nik' => $result['user_nik'],
 				'nama' => $result['user_nama'],
 				'foto' => $result['user_foto'],
+				'instansi' => $result['user_instansi'],
 				'level' => 1,
 				'logged_in' => true
 			];

@@ -23,21 +23,21 @@
 					if (data['pengajuan_status'] == 'diproses') {
 						status = '<span class="badge bg-info">'+ data['pengajuan_status'] +'</span>';
 
-						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">detail</a>'+
-							' &nbsp;<a href="user-revisi.html?code='+ data['pengajuan_code'] +'" class="badge bg-success">perbaharui</a>';
+						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">Detail</a>'+
+							' &nbsp;<a href="user-revisi.html?code='+ data['pengajuan_code'] +'" class="badge bg-success">Revisi</a>';
 					}else if(data['pengajuan_status'] == 'diterima'){
 						status = '<span class="badge bg-success">'+ data['pengajuan_status'] +'</span>';
 
-						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">detail</a>';
+						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">Detail</a>';
 					}else if(data['pengajuan_status'] == 'dipending'){
 						status = '<span class="badge bg-warning">'+ data['pengajuan_status'] +'</span>';
 
-						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">detail</a>';
+						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">Detail</a>';
 					}else{
 						status =
 						'<span class="badge bg-danger">'+ data['pengajuan_status'] +'</span>';
 
-						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">detail</a>';
+						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">Detail</a>';
 					}
 
 
