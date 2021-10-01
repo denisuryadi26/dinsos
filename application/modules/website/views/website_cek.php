@@ -18,7 +18,7 @@
 <body>
 	<nav class="navbar navbar-light bg-warning static-top">
 		<div class="container">
-			<a class="navbar-brand text-white" href="#">Apps</a>
+			<a class="navbar-brand text-white" href="<?= base_url() ?>landing-page.html"><marquee>DINAS SOSIAL KOTA PADANGSIDIMPUAN</marquee></a>
 			<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk</a>
 		</div>
 	</nav>
@@ -28,8 +28,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-9 mx-auto">
-					<h3 class="">Selamat datang di Sistem Perizinan BC Atambua!</h3>
-					<p>Sudah mengajukan permohonan? Cek disini</p>
+
+				<img class="profile-user-img img-fluid img-circle"
+                       src="<?= base_url('uploads/pictures/logo.png') ?>" class="img-circle elevation-2">
+                      
+					   <h3 class="">Sistem Aplikasi Layanan Online</h3>
+					<p><h3 class="">SALAK MANIS BERDAHAN</h3></p>
+					<p>Sudah mengajukan permohonan ? Cek disini</p>
 				</div>
 				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
 					<form action="<?= base_url() ?>cek-permohonan.html" method="GET" id="form-cek">
