@@ -31,6 +31,14 @@ class M_admin extends CI_Model {
 		return $query->result_array();
 	}
 
+	function get_all_kelurahan()
+	{
+		$this->db->join('tbl_kecamatan b', 'a.kode_kecamatan = b.kode_kecamatan', 'LEFT');
+		$this->db->order_by('a.kode_kelurahan', 'asc');
+		$query = $this->db->get('tbl_kelurahan a');
+		return $query->result_array();
+	}
+
 	function get($table)
 	{
 		$query = $this->db->get($table);

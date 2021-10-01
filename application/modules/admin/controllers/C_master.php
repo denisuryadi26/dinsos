@@ -40,6 +40,15 @@ class C_master extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
+	public function view_kelurahan()
+	{
+		$data = $this->template->adminlte();
+		$data['title'] = 'Daftar Kelurahan';
+		$data['js'] = 'admin/js_kelurahan';
+		$data['content'] = 'admin/kelurahan';
+		$this->load->view('template/template', $data);
+	}
+
 	public function get_all_admin()
 	{
 		$this->template->_is_ajax();
@@ -510,6 +519,155 @@ class C_master extends CI_Controller {
 	}
 
 	public function download_pohoto_kecamatan()
+	{
+		$this->load->helper('download');
+		force_download('./uploads/document/' . $this->input->get('file'), NULL);
+		exit();
+	}
+
+	public function get_all_kelurahan()
+	{
+		$this->template->_is_ajax();
+		$result = $this->admin->get_all_kelurahan();
+
+		if (empty($result)) {
+			$response = [
+				'status' => false,
+				'message' => 'Tidak ada data!'
+			];
+		}else{
+			$response = [
+				'status' => true,
+				'data' => $result
+			];
+		}
+
+		echo json_encode($response);
+	}
+
+	public function get_kelurahan()
+	{
+		$this->template->_is_ajax();
+		$result = $this->admin->get_where_row('tbl_kelurahan', ['kode_kelurahan' => $this->input->get('kode_kelurahan')]);
+		if (empty($result)) {
+			$response = [
+				'status' => false,
+				'message' => 'Tidak ada data!'
+			];
+		}else{
+			$response = [
+				'status' => true,
+				'data' => $result
+			];
+		}
+
+		echo json_encode($response);
+	}
+
+	public function tambah_data_kelurahan()
+	{
+		$this->template->_is_ajax();
+		$config['upload_path'] = './uploads/document/';
+        $config['allowed_types'] = '*';
+        $this->load->library('upload', $config);
+
+		$data = [
+			'kode_kelurahan' => $this->input->post('kode_kelurahan'),
+			'nama_kelurahan' => $this->input->post('nama_kelurahan'),
+			'kode_kecamatan' => $this->input->post('tipe')
+		];
+		$cek = $this->admin->get_where_row('tbl_kelurahan', ['kode_kelurahan' => $data['kode_kelurahan']]);
+		if ($cek['kode_kelurahan'] === $data['kode_kelurahan']) {
+			$response = [
+				'status' => false,
+				'title' => 'Gagal',
+				'message' => 'Gagal menambah data! Code sudah digunakan'
+			];
+		}else{
+			if($this->upload->do_upload('file')){
+				$foto = [
+					'photo_kelurahan' => $this->upload->data('file_name')
+				];
+				$data = array_merge($data, $foto);
+				chmod($this->upload->data('full_path'), 0777);
+			}
+			$tambah = $this->admin->insert('tbl_kelurahan', $data);
+			if ($tambah) {
+				$response = [
+					'status' => true,
+					'title' => 'Berhasil',
+					'message' => 'Berhasil menambah data!'
+				];
+			}else{
+				$response = [
+					'status' => false,
+					'title' => 'Gagal',
+					'message' => 'Gagal menambah data! Silahkan ulangi beberapa saat lagi'
+				];
+			}
+		}
+		echo json_encode($response);
+	}
+
+	public function ubah_data_kelurahan()
+	{
+		$this->template->_is_ajax();
+		$config['upload_path'] = './uploads/document/';
+        $config['allowed_types'] = '*';
+        $this->load->library('upload', $config);
+        $data = [
+			'kode_kelurahan' => $this->input->post('e-kode'),
+			'nama_kelurahan' => $this->input->post('e-nama'),
+			'kode_kecamatan' => $this->input->post('e-tipe')
+		];
+		if($this->upload->do_upload('e-file')){
+			$foto = [
+				'photo_kelurahan' => $this->upload->data('file_name')
+			];
+			$data = array_merge($data, $foto);
+			chmod($this->upload->data('full_path'), 0777);
+		}
+		$update = $this->admin->update('tbl_kelurahan', $data, ['kode_kelurahan' => $data['kode_kelurahan']]);
+		if ($update) {
+			$response = [
+				'status' => true,
+				'title' => 'Berhasil',
+				'message' => 'Berhasil mengubah data!'
+			];
+		}else{
+			$response = [
+				'status' => false,
+				'title' => 'Gagal',
+				'message' => 'Gagal mengubah data! Silahkan ulangi beberapa saat lagi'
+			];
+		}
+		echo json_encode($response);
+	}
+
+	public function hapus_data_kelurahan()
+	{
+		$this->template->_is_ajax();
+		$where = [
+			'formulir_code' => $this->input->post('id')
+		];
+		$hapus = $this->admin->delete('tbl_formulir', $where);
+		if ($hapus) {
+			$response = [
+				'status' => true,
+				'title' => 'Berhasil',
+				'message' => 'Berhasil menghapus data!'
+			];
+		}else{
+			$response = [
+				'status' => false,
+				'title' => 'Gagal',
+				'message' => 'Gagal menghapus data! Silahkan ulangi beberapa saat lagi'
+			];
+		}
+		echo json_encode($response);
+	}
+
+	public function download_pohoto_kelurahan()
 	{
 		$this->load->helper('download');
 		force_download('./uploads/document/' . $this->input->get('file'), NULL);

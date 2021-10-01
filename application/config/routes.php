@@ -111,6 +111,12 @@ $route['add-data-kecamatan.json'] = 'admin/C_master/tambah_data_kecamatan';
 $route['update-data-kecamatan.json'] = 'admin/C_master/ubah_data_kecamatan';
 $route['delete-data-kecamatan.json'] = 'admin/C_master/hapus_data_kecamatan';
 
+$route['get-all-kelurahan.json'] = 'admin/C_master/get_all_kelurahan';
+$route['get-kelurahan.json'] = 'admin/C_master/get_kelurahan';
+$route['add-data-kelurahan.json'] = 'admin/C_master/tambah_data_kelurahan';
+$route['update-data-kelurahan.json'] = 'admin/C_master/ubah_data_kelurahan';
+$route['delete-data-kelurahan.json'] = 'admin/C_master/hapus_data_kelurahan';
+
 $route['get-all-pengajuan.json'] = 'admin/C_pengajuan/get_all_pengajuan';
 $route['admin-tolak-pengajuan.json'] = 'admin/C_pengajuan/tolak_pengajuan';
 $route['admin-pending-pengajuan.json'] = 'admin/C_pengajuan/pending_pengajuan';
