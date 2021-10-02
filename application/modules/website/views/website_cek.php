@@ -16,7 +16,7 @@
 	<link href="<?= base_url('template/landing-page/') ?>css/landing-page.min.css" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-light bg-warning static-top">
+	<nav class="navbar navbar-light bg-dark static-top">
 		<div class="container">
 			<a class="navbar-brand text-white" href="<?= base_url() ?>landing-page.html"><marquee>DINAS SOSIAL KOTA PADANGSIDIMPUAN</marquee></a>
 			<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk</a>

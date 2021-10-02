@@ -16,11 +16,12 @@
 	<link href="<?= base_url('template/landing-page/') ?>css/landing-page.min.css" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-light bg-danger static-top">
+	<nav class="navbar navbar-light bg-dark static-top">
 		<div class="container">
-			<a class="navbar-brand text-white" href="#"><marquee>DINAS SOSIAL KOTA PADANGSIDIMPUAN</marquee></a>
+			<a class="navbar-brand text-white" href="#"><marquee>SELAMAT DATANG DI APLIKASI SITEM LAYANAN 
+				KESEJAHTERAAN SOSIAL DINAS SOSIAL KOTA PADANGSIDIMPUAN</marquee></a>
 			<!-- <a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk Sebagai Kelurahan</a> -->
-			<a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a>
+			<!-- <a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a> -->
 		</div>
 	</nav>
 
@@ -37,7 +38,8 @@
             
 					 <h3 class="">Sistem Aplikasi Layanan Online</h3>
 					<p><h3 class="">SALAK MANIS BERDAHAN</h3></p>
-					<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk Sebagai User Desa/Kelurahan</a>
+					<a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a>
+					<a class="btn btn-success" href="<?= base_url() ?>user-login.html">Masuk Sebagai User Desa/Kelurahan</a>
 					<p>Sudah mengajukan permohonan ? Cek disini</p>
 				</div>
 				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
@@ -171,7 +173,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-					<p class="text-muted small mb-4 mb-lg-0">&copy;2021 All Rights Reserved.</p>
+					<p class="text-muted small mb-4 mb-lg-0">DINSOS PSP &copy;2021 All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
 					<ul class="list-inline mb-0">
