@@ -54,11 +54,13 @@
 					// let tahun = (xtahun < 1000)?xtahun + 1900 : xtahun;
 					let hasil = {
 						0: no,
-						1: data['pengajuan_code'],
-						2: data['formulir_deskripsi'],
-						3: data['pengajuan_tgl'],
-						4: status,
-						5: revisi
+						1: data['pemohon_nama'],
+						2: data['pemohon_nik'],
+						3: data['pengajuan_code'],
+						4: data['formulir_deskripsi'],
+						5: data['pengajuan_tgl'],
+						6: status,
+						7: revisi
 					};
 					table.row.add(hasil).draw();
 					no++;

@@ -17,7 +17,22 @@
 						<div class="card card-primary">
 							<div class="card-header">
 							</div>
-							<div class="card-body">
+							
+
+									<!-- <div class="modal-body"> -->
+						<div class="card-body">				
+						<!-- <form id="form-tambah" method="POST"> -->
+						<div class="form-group">
+								<label for="nama_pemohon">Nama Pemohon</label>
+								<input type="text" name="nama_pemohon" id="pemohon_nama" class="form-control" placeholder="Masukan Nama Pemohon" required autocomplete="off">
+							</div>
+							
+							<div class="form-group">
+								<label for="nik_pemohon">NIK Pemohon</label>
+								<input type="number" name="nik_pemohon" id="pemohon_nik" class="form-control" placeholder="Masukan NIK Pemohon" required autocomplete="off">
+							</div>
+
+							
 								<div class="form-group">
 									<label for="tipe">Tipe Pengajuan</label>
 									<select name="tipe" id="tipe" class="form-control" required>

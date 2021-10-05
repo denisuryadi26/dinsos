@@ -118,6 +118,8 @@ class C_pengajuan extends CI_Controller {
 		// chmod($file['full_path'], 0777);
 
 		$data = [
+			'pemohon_nama' => $this->input->post('nama_pemohon'),
+			'pemohon_nik' => $this->input->post('nik_pemohon'),
 			'pengajuan_code' => $this->_code(),
 			'user_nik' => $this->session->nik,
 			'formulir_code' => $this->input->post('tipe'),
@@ -195,6 +197,8 @@ class C_pengajuan extends CI_Controller {
 		// chmod($file['full_path'], 0777);
 
 		$data = [
+			'pemohon_nama' => $this->input->post('pnama'),
+			'pemohon_nik' => $this->input->post('pnik'),
 			'pengajuan_code' => $this->input->post('code'),
 			'user_nik' => $this->session->nik,
 			'formulir_code' => $this->input->post('tipe'),

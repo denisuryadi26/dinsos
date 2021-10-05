@@ -18,6 +18,17 @@
 							<div class="card-header">
 							</div>
 							<div class="card-body">
+
+							<div class="form-group">
+								<label for="namapemohon">Nama Pemohon</label>
+								<input type="text" name="pnama" id="pemohon_nama" class="form-control" placeholder="Masukan Nama" required autocomplete="off">
+							</div>
+							
+							<div class="form-group">
+								<label for="nikpemohon">NIK Pemohon</label>
+								<input type="number" name="pnik" id="pemohon_nik" class="form-control" placeholder="Masukan NIK" required autocomplete="off">
+							</div>
+
 								<div class="form-group">
 									<label for="tipe">Tipe Pengajuan</label>
 									<select name="tipe" id="tipe" class="form-control" required>

@@ -68,10 +68,13 @@
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>Code</th>
+													<th>Nama Pemohon</th>
+													<th>NIK Pemohon</th>
 													<th>Tipe</th>
-													<th>NIK</th>
-													<th>Nama</th>
+													<!-- <th>NIK</th> -->
+													<th>Desa/Kel</th>
+													<th>Code</th>
+													<th>Tgl</th>
 													<th>Status</th>
 												</tr>
 											</thead>

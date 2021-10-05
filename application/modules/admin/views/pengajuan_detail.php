@@ -18,13 +18,23 @@
 						<div class="card-header"></div>
 						<div class="card-body">
 							<div class="form-group">
-								<label for="nik">NIK</label>
+								<label for="nik">NIK Operator</label>
 								<input type="text" name="nik" id="nik" class="form-control" required readonly value="<?= $data['user_nik'] ?>">
 							</div>
 							<div class="form-group">
-								<label for="nama">Nama</label>
+								<label for="nama">Nama Operator</label>
 								<input type="text" name="nama" id="nama" class="form-control" required readonly value="<?= $data['user_nama'] ?>">
 							</div>
+
+							<div class="form-group">
+								<label for="nik">NIK Pemohon</label>
+								<input type="text" name="nik_pemohon" id="nik_pemohon" class="form-control" required readonly value="<?= $data['pemohon_nik'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="nama">Nama Pemohon</label>
+								<input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" required readonly value="<?= $data['pemohon_nama'] ?>">
+							</div>
+
 							<div class="form-group">
 								<label for="code">Code Pengajuan</label>
 								<input type="text" name="code" id="p_code" class="form-control" required readonly value="<?= $data['pengajuan_code'] ?>">

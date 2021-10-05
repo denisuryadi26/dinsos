@@ -18,7 +18,7 @@
 <body>
 	<nav class="navbar navbar-light bg-dark static-top">
 		<div class="container">
-			<a class="navbar-brand text-white" href="#"><marquee>SELAMAT DATANG DI APLIKASI SITEM LAYANAN 
+			<a class="navbar-brand text-primary" href="#"><marquee>SELAMAT DATANG DI APLIKASI SISTEM LAYANAN 
 				KESEJAHTERAAN SOSIAL DINAS SOSIAL KOTA PADANGSIDIMPUAN</marquee></a>
 			<!-- <a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk Sebagai Kelurahan</a> -->
 			<!-- <a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a> -->
@@ -36,8 +36,10 @@
                       
     
             
-					 <h3 class="">Sistem Aplikasi Layanan Online</h3>
-					<p><h3 class="">SALAK MANIS BERDAHAN</h3></p>
+					   <h3 class="">Sistem Aplikasi Layanan Online</h3>
+					<p><h3 class="text-warning">SALAK MANIS BERDAHAN</h3></p>
+
+					
 					<a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a>
 					<a class="btn btn-success" href="<?= base_url() ?>user-login.html">Masuk Sebagai User Desa/Kelurahan</a>
 					<p>Sudah mengajukan permohonan ? Cek disini</p>
@@ -173,7 +175,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-					<p class="text-muted small mb-4 mb-lg-0">DINSOS PSP &copy;2021 All Rights Reserved.</p>
+					<p class="text-white small mb-4 mb-lg-0">Copyright-&copy; - DINSOS PSP - 2021</p></p>
 				</div>
 				<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
 					<ul class="list-inline mb-0">

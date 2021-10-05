@@ -6,7 +6,8 @@
 					<h1 class="m-0 text-dark"><?= $title ?></h1>
 				</div>
 				<div class="col-sm-6">
-					<a href="<?= base_url() ?>user-pengajuan.html" id="btn-modal-tambah" class="btn btn-success float-right">Buat Pengajuan</a>
+					<a href="<?= base_url() ?>user-pengajuan.html" id="btn-modal-tambah" class="btn btn-success float-right">
+					Buat Pengajuan</a>
 				</div>
 			</div>
 		</div>

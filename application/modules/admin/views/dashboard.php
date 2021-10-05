@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-lg-3 col-6">
-          <div class="small-box bg-success">
+          <div class="small-box bg-primary">
             <div class="inner">
               <h3><?= $jml_pengajuan ?></h3>
               <p>Pengajuan</p>
@@ -52,6 +52,32 @@
         </div>
 
         <div class="col-lg-3 col-6">
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3><?= $jml_pengajuan_diterima ?></h3>
+              <p>Diterima</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-hourglass"></i>
+            </div>
+            <a href="<?= base_url() ?>admin-pengajuan-diterima.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+          <div class="small-box bg-dark">
+            <div class="inner">
+              <h3><?= $jml_pengajuan_dipending; ?></h3>
+              <p>Dipending</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-times"></i>
+            </div>
+            <a href="<?= base_url() ?>admin-pengajuan-dipending.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
           <div class="small-box bg-danger">
             <div class="inner">
               <h3><?= $jml_pengajuan_ditolak; ?></h3>
@@ -63,7 +89,7 @@
             <a href="<?= base_url() ?>admin-pengajuan-ditolak.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-
+        
       </div>
     </div>
 
