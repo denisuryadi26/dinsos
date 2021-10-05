@@ -56,6 +56,7 @@
 		
 	
 	<h3 class="text-center mt-3">Pengajuan Anda</h3>
+	<p><h5 class="text-warning">Dokumen ini terdaftar di dinas sosial Kota Padangsidimpuan<h5></p>
 	<!-- <section class="features-icons bg-light" style="margin-top: -70px;"> -->
 		<div class="container">
 			<div class="row">

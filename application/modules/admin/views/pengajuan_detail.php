@@ -17,10 +17,10 @@
 					<div class="card">
 						<div class="card-header"></div>
 						<div class="card-body">
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label for="nik">NIK Operator</label>
 								<input type="text" name="nik" id="nik" class="form-control" required readonly value="<?= $data['user_nik'] ?>">
-							</div>
+							</div> -->
 							<div class="form-group">
 								<label for="nama">Nama Operator</label>
 								<input type="text" name="nama" id="nama" class="form-control" required readonly value="<?= $data['user_nama'] ?>">

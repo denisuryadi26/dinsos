@@ -309,6 +309,8 @@ class C_pengajuan extends CI_Controller {
 		exit();
 	}
 
+	
+
 	function _code()
 	{
 		$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
