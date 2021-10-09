@@ -23,7 +23,7 @@
 									<span class="username">
 										<a href="#"><?= $data['admin_nama'] ?></a>
 									</span>
-									<span class="description"><?= $data['detail_status'] ?> pada - <?= date('d/m/Y H:i', strtotime($data['detail_tgl'])) ?> WIB</span>
+									<span class="description"><?= $data['detail_status'] ?> pada - <?= date('d/m/Y') ?></span>
 								</div>
 								<p>
 									<?= $data['detail_ket'] ?>
