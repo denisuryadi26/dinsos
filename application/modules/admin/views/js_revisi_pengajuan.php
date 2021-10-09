@@ -36,7 +36,7 @@
 							text: result['message'],
 							type: 'success',
 						}).then(function () {
-							window.location.href = base_url + 'admin-pengajuan-diproses.html';
+							window.location.href = base_url + 'admin-pengajuan-masuk.html';
 						});
 					}else{
 						Swal.fire({

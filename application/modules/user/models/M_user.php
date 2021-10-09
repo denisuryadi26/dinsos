@@ -74,6 +74,26 @@ class M_user extends CI_Model {
 		return $query->row_array();
 	}
 
+	function get_pending($where)
+	{
+		$this->db->join('tbl_admin', 'tbl_admin.admin_id = tbl_pengajuan_detail.admin_id', 'left');
+		$this->db->join('tbl_pengajuan', 'tbl_pengajuan.pengajuan_code = tbl_pengajuan_detail.pengajuan_code', 'left');
+		$this->db->join('tbl_formulir', 'tbl_formulir.formulir_code = tbl_pengajuan.formulir_code', 'left');
+		$this->db->where($where);
+		$query = $this->db->get('tbl_pending');
+		return $query->row_array();
+	}
+
+	function get_ditolak($where)
+	{
+		$this->db->join('tbl_admin', 'tbl_admin.admin_id = tbl_pengajuan_detail.admin_id', 'left');
+		$this->db->join('tbl_pengajuan', 'tbl_pengajuan.pengajuan_code = tbl_pengajuan_detail.pengajuan_code', 'left');
+		$this->db->join('tbl_formulir', 'tbl_formulir.formulir_code = tbl_pengajuan.formulir_code', 'left');
+		$this->db->where($where);
+		$query = $this->db->get('tbl_penolakan');
+		return $query->row_array();
+	}
+
 }
 
 /* End of file M_user.php */

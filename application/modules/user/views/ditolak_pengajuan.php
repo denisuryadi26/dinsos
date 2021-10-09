@@ -73,19 +73,21 @@
 								</tr>
 							</tbody>
 						</table>
+						<a href="<?= base_url() ?>user-revisi.html?code=<?= $data['pengajuan_code'] ?>" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i><h4> Revisi</h4></a>
+
 					</div>
 				</div>
 			</div>
 
-								 <div class= "col-sm-12">
-								 <iframe src="<?= base_url('./uploads/document/') ?><?= $data['detail_file'] ?>" height="600" width="100%" title="Iframe Example"></iframe>
+								 <!-- <div class= "col-sm-12">
+								 <iframe src="<?= base_url('./uploads/document/') ?><?= $data['tolak_file'] ?>" height="600" width="100%" title="Iframe Example"></iframe>
 
-								</div>
+								</div> -->
 
                                 </div>
 								<p>
-									<?php if ($data['detail_status'] != 'diterima/sah'): ?>
-									<a href="<?= base_url() ?>user-revisi.html?code=<?= $data['pengajuan_code'] ?>" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"><h4> Revisi</h4></a>
+									<?php if ($data['detail_status'] != 'ditolak'): ?>
+									<a href="<?= base_url() ?>user-revisi.html?code=<?= $data['pengajuan_code'] ?>" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Revisi</a>
 									<?php endif ?>
 								</p>
 							</div>

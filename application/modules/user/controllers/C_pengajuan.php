@@ -46,12 +46,12 @@ class C_pengajuan extends CI_Controller {
 			redirect('user-daftar-pengajuan.html','refresh');
 		}
 		$data = $this->template->adminlte();
-		$data['data'] = $this->user->get_penolakan(['tbl_pengajuan.pengajuan_code' => $this->input->get('code')]);
+		$data['data'] = $this->user->get_detail(['tbl_pengajuan.pengajuan_code' => $this->input->get('code')]);
 		if (empty($data['data'])) {
 			redirect('user-daftar-pengajuan.html','refresh');
 		}
 		$data['title'] = 'Pengajuan Ditolak';
-		$data['content'] = 'user/tolak_pengajuan';
+		$data['content'] = 'user/ditolak_pengajuan';
 		$this->load->view('template/template', $data);
 	}
 
@@ -69,6 +69,23 @@ class C_pengajuan extends CI_Controller {
 		$data['content'] = 'user/detail_pengajuan';
 		$this->load->view('template/template', $data);
 	}
+
+
+	public function index_proses()
+	{
+		if (empty($this->input->get('code'))) {
+			redirect('user-daftar-pengajuan.html','refresh');
+		}
+		$data = $this->template->adminlte();
+		$data['data'] = $this->user->get_detail(['tbl_pengajuan.pengajuan_code' => $this->input->get('code')]);
+		if (empty($data['data'])) {
+			redirect('user-daftar-pengajuan.html','refresh');
+		}
+		$data['title'] = 'Pengajuan Diproses';
+		$data['content'] = 'user/proses_pengajuan';
+		$this->load->view('template/template', $data);
+	}
+
 
 	public function index_revisi()
 	{
@@ -118,6 +135,8 @@ class C_pengajuan extends CI_Controller {
 		// chmod($file['full_path'], 0777);
 
 		$data = [
+			'pemohon_nama' => $this->input->post('nama_pemohon'),
+			'pemohon_nik' => $this->input->post('nik_pemohon'),
 			'pengajuan_code' => $this->_code(),
 			'user_nik' => $this->session->nik,
 			'formulir_code' => $this->input->post('tipe'),
@@ -128,7 +147,7 @@ class C_pengajuan extends CI_Controller {
 
 		$aktifitas = [
 			'pengajuan_code' => $data['pengajuan_code'],
-			'aktifitas_des' => 'diproses',
+			'aktifitas_des' => 'masuk',
 			'aktifitas_tgl' => date('Y-m-d H:i:s')
 		];
 		$this->user->insert('tbl_aktifitas', $aktifitas);
@@ -136,32 +155,32 @@ class C_pengajuan extends CI_Controller {
 		$where = [
 			'user_nik' => $this->session->nik,
 			'formulir_code' => $data['formulir_code'],
-			'pengajuan_status' => 'diproses'
+			'pengajuan_status' => 'masuk'
 		];
+// MEMBATASI UPLOAD PERMOHONAN
+		// $cek = $this->user->get_where_row('tbl_pengajuan', $where);
 
-		$cek = $this->user->get_where_row('tbl_pengajuan', $where);
-
-		if ($cek['user_nik'] === $this->session->nik && $cek['formulir_code'] === $data['formulir_code'] && $cek['pengajuan_status'] == 'diproses') {
-			$response = [
-				'status' => false,
-				'title' => 'Gagal',
-				'message' => 'Gagal membuat permohonan! Permohonan pengajuan anda sedang diproses'
-			];
-		}else{
+		// if ($cek['user_nik'] === $this->session->nik && $cek['formulir_code'] === $data['formulir_code'] && $cek['pengajuan_status'] == 'masuk') {
+		// 	$response = [
+		// 		'status' => false,
+		// 		'title' => 'Gagal',
+		// 		'message' => ' Mohon Maaf... Gagal membuat permohonan! Permohonan pengajuan anda sedang diproses'
+		// 	];
+		// }else{
 			$tambah = $this->user->insert('tbl_pengajuan', $data);
-			if ($tambah) {
+			 {
 				$response = [
 					'status' => true,
 					'title' => 'Berhasil',
 					'message' => 'Berhasil menambah data!'
 				];
-			}else{
-				$response = [
-					'status' => false,
-					'title' => 'Gagal',
-					'message' => 'Gagal menambah data! Silahkan ulangi beberapa saat lagi'
-				];
-			}
+			// }else{
+			// 	$response = [
+			// 		'status' => false,
+			// 		'title' => 'Gagal',
+			// 		'message' => 'Gagal menambah data! Silahkan ulangi beberapa saat lagi'
+			// 	];
+			// }
 		}
 
 		echo json_encode($response);
@@ -195,6 +214,8 @@ class C_pengajuan extends CI_Controller {
 		// chmod($file['full_path'], 0777);
 
 		$data = [
+			'pemohon_nama' => $this->input->post('pnama'),
+			'pemohon_nik' => $this->input->post('pnik'),
 			'pengajuan_code' => $this->input->post('code'),
 			'user_nik' => $this->session->nik,
 			'formulir_code' => $this->input->post('tipe'),
@@ -206,12 +227,12 @@ class C_pengajuan extends CI_Controller {
 		$where = [
 			'user_nik' => $this->session->nik,
 			'formulir_code' => $data['formulir_code'],
-			'pengajuan_status' => 'diproses'
+			'pengajuan_status' => 'masuk'
 		];
 
 		$cek = $this->user->get_where_row('tbl_pengajuan', $where);
 
-		if ($cek['user_nik'] === $this->session->nik && $cek['formulir_code'] === $data['formulir_code'] && $cek['pengajuan_status'] == 'diproses') {
+		if ($cek['user_nik'] === $this->session->nik && $cek['formulir_code'] === $data['formulir_code'] && $cek['pengajuan_formulir'] == 'masuk') {
 			$response = [
 				'status' => false,
 				'title' => 'Gagal',
@@ -305,6 +326,21 @@ class C_pengajuan extends CI_Controller {
 		exit();
 	}
 
+	public function viewpdf ($file)
+	{
+		if (empty($this->input->get('code'))) {
+			redirect('user-daftar-pengajuan.html','refresh');
+		}
+		$data = $this->template->adminlte();
+		$data['data'] = $this->user->get_detail(['tbl_pengajuan.pengajuan_code' => $this->input->get('code')]);
+		if (empty($data['data'])) {
+			redirect('user-daftar-pengajuan.html','refresh');
+		}
+		$data['title'] = 'Datail Pengajuan';
+		$data['content'] = 'user/detail_pengajuan';
+		$this->load->view('template/template', $data);
+	}
+
 	function _code()
 	{
 		$characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -316,6 +352,7 @@ class C_pengajuan extends CI_Controller {
 		return $randomString;
 	}
 
+	
 }
 
 /* End of file C_pengajuan.php */

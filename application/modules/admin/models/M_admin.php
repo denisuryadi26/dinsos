@@ -97,7 +97,7 @@ class M_admin extends CI_Model {
 	function report_pengajuan($dari, $sampai, $status)
 	{
 		if ($status == 'semua') {
-			$where = "(tbl_pengajuan.pengajuan_status = 'diproses' OR tbl_pengajuan.pengajuan_status = 'ditolak' OR tbl_pengajuan.pengajuan_status = 'dipending' OR tbl_pengajuan.pengajuan_status = 'diterima') AND DATE_FORMAT(tbl_pengajuan.pengajuan_tgl, '%Y-%m-%d' ) BETWEEN '".$dari."' AND '".$sampai."'";
+			$where = "(tbl_pengajuan.pengajuan_status = 'masuk' OR tbl_pengajuan.pengajuan_status = 'ditolak' OR tbl_pengajuan.pengajuan_status = 'diproses' OR tbl_pengajuan.pengajuan_status = 'diterima/sah') AND DATE_FORMAT(tbl_pengajuan.pengajuan_tgl, '%Y-%m-%d' ) BETWEEN '".$dari."' AND '".$sampai."'";
 		}else{
 			$where = "tbl_pengajuan.pengajuan_status = '" . $status . "' AND DATE_FORMAT(tbl_pengajuan.pengajuan_tgl, '%Y-%m-%d' ) BETWEEN '".$dari."' AND '".$sampai."'";
 		}

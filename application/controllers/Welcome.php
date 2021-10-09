@@ -38,6 +38,8 @@ class Welcome extends CI_Controller {
 			$html .= 
 				'<tr>
 					<td>1</td>
+					<td>'. $result[$i]['pemohon_nama'] .'</td>
+					<td>'. $result[$i]['pemohon_nik'] .'</td>
 					<td>'. $result[$i]['pengajuan_code'] .'</td>
 					<td>'. $result[$i]['formulir_deskripsi'] .'</td>
 					<td>'. $result[$i]['user_nik'] .'</td>

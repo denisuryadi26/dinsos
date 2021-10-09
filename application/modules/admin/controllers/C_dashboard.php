@@ -18,8 +18,10 @@ class C_dashboard extends CI_Controller {
 		$data = $this->template->adminlte();
 		$data['jml_user'] = count($this->admin->get('tbl_user'));
 		$data['jml_pengajuan'] = count($this->admin->get('tbl_pengajuan'));
-		$data['jml_pengajuan_diproses'] = count($this->admin->get_where('tbl_pengajuan', ['pengajuan_status' => 'diproses']));
+		$data['jml_pengajuan_masuk'] = count($this->admin->get_where('tbl_pengajuan', ['pengajuan_status' => 'masuk']));
 		$data['jml_pengajuan_ditolak'] = count($this->admin->get_where('tbl_pengajuan', ['pengajuan_status' => 'ditolak']));
+		$data['jml_pengajuan_diproses'] = count($this->admin->get_where('tbl_pengajuan', ['pengajuan_status' => 'diproses']));
+		$data['jml_pengajuan_diterima'] = count($this->admin->get_where('tbl_pengajuan', ['pengajuan_status' => 'diterima/sah']));
 		$data['title'] = 'Dashboard';
 		$data['content'] = 'admin/dashboard';
 		$this->load->view('template/template', $data);

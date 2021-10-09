@@ -16,24 +16,32 @@
 	<link href="<?= base_url('template/landing-page/') ?>css/landing-page.min.css" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-light bg-danger static-top">
+	<nav class="navbar navbar-light bg-dark static-top">
 		<div class="container">
-			<a class="navbar-brand text-white" href="#">DINSOS KOTA PADANGSIDIMPUAN</a>
+			<a class="navbar-brand text-primary" href="#"><marquee>SELAMAT DATANG DI APLIKASI SISTEM LAYANAN 
+				KESEJAHTERAAN SOSIAL DINAS SOSIAL KOTA PADANGSIDIMPUAN</marquee></a>
 			<!-- <a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk Sebagai Kelurahan</a> -->
-			<a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a>
+			<!-- <a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a> -->
 		</div>
 	</nav>
 
 	<header class="masthead text-white text-center">
-		<div class="light"></div>
+	<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-9 mx-auto">
-				    <p></p>
+				
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="<?= base_url('uploads/pictures/logo.png') ?>" class="img-circle elevation-2">
+                      
+    
+            
+					   <h3 class="">Sistem Aplikasi Layanan Online</h3>
+					<p><h3 class="text-warning">SALAK MANIS BERDAHAN</h3></p>
 
-					 <h3 class="">Selamat Datang di Aplikasi Sistem Layanan Online</h3>
-					<p><h3 class="">SALAK MANIS BERDAHAN</h3></p>
-					<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk Sebagai User Desa/Kelurahan</a>
+					
+					<a class="btn btn-warning" href="<?= base_url() ?>admin-login.html">Masuk Sebagai Admin Dinas Sosial</a>
+					<a class="btn btn-success" href="<?= base_url() ?>user-login.html">Masuk Sebagai User Desa/Kelurahan</a>
 					<p>Sudah mengajukan permohonan ? Cek disini</p>
 				</div>
 				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
@@ -50,6 +58,8 @@
 				</div>
 			</div>
 		</div>
+	</div>
+		
 	</header>
 	<!-- <h3 class="text-center mt-3">Tentang Aplikasi</h3>
 	<section class="features-icons bg-light" style="margin-top: -70px;">
@@ -165,7 +175,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-					<p class="text-muted small mb-4 mb-lg-0">&copy;2021 All Rights Reserved.</p>
+					<p class="text-white small mb-4 mb-lg-0">Copyright-&copy; - DINSOS PSP - 2021</p></p>
 				</div>
 				<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
 					<ul class="list-inline mb-0">

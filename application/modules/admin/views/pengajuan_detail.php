@@ -4,6 +4,7 @@
 			<div class="row mb-2">
 				<div class="col-sm-6">
 					<h1 class="m-0 text-dark"><?= $title ?></h1>
+					<b>Pastikan Terlebih Dahulu Tidak Ada Kesalahan Dokumen</b>
 				</div>
 			</div>
 		</div>
@@ -12,19 +13,29 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-4">
 
 					<div class="card">
 						<div class="card-header"></div>
 						<div class="card-body">
-							<div class="form-group">
-								<label for="nik">NIK</label>
+							<!-- <div class="form-group">
+								<label for="nik">NIK Operator</label>
 								<input type="text" name="nik" id="nik" class="form-control" required readonly value="<?= $data['user_nik'] ?>">
-							</div>
+							</div> -->
 							<div class="form-group">
-								<label for="nama">Nama</label>
+								<label for="nama">Nama Operator</label>
 								<input type="text" name="nama" id="nama" class="form-control" required readonly value="<?= $data['user_nama'] ?>">
 							</div>
+
+							<div class="form-group">
+								<label for="nik">NIK Pemohon</label>
+								<input type="text" name="nik_pemohon" id="nik_pemohon" class="form-control" required readonly value="<?= $data['pemohon_nik'] ?>">
+							</div>
+							<div class="form-group">
+								<label for="nama">Nama Pemohon</label>
+								<input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" required readonly value="<?= $data['pemohon_nama'] ?>">
+							</div>
+
 							<div class="form-group">
 								<label for="code">Code Pengajuan</label>
 								<input type="text" name="code" id="p_code" class="form-control" required readonly value="<?= $data['pengajuan_code'] ?>">
@@ -43,7 +54,17 @@
 			            </div>
 					</div>
 				</div>
-				<div class="col-6">
+				<div class= "col-8">
+				<div class= "row">
+                <table class= "table">
+				<iframe src="<?= base_url('./uploads/document/') ?><?= $data['pengajuan_formulir'] ?>" height="630" width="100%" title="Dokumen Pengajuan"></iframe>
+                 </table>
+				 </div>
+				 </div>
+
+				 
+
+				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
 							<h3>Verifikasi Pengajuan</h3>
@@ -53,22 +74,22 @@
 								<input type="hidden" name="code" class="form-control" required readonly value="<?= $data['pengajuan_code'] ?>">
 								<div class="form-group">
 									<label for="keterangan">Keterangan *</label>
-									<textarea name="keterangan" class="form-control" cols="30" rows="10" required></textarea>
+									<textarea name="keterangan" class="form-control" cols="30" rows="2" required></textarea>
 								</div>
 								<div class="form-group">
-									<label for="file">File Tambahan (Optional)</label>
+									<label for="file">File Tambahan (Optional) Jika Pengajuan diterima/sah</label>
 									<div class="input-group">
 										<div class="custom-file">
 											<input type="file" name="file" class="custom-file-input">
-											<label class="custom-file-label" for="file">Pilih Dokumen</label>
+											<label class="custom-file-label" for="file">Pilih Dokumen yang sudah ditandatangani</label>
 										</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<select name="status" class="form-control" required>
 										<option value="">Pilih Status</option>
-										<option value="diterima" class="bg-success">Diterima</option>
-										<option value="dipending"class="bg-warning">Dipending</option>
+										<option value="diterima/sah" class="bg-success">diterima/sah</option>
+										<option value="diproses"class="bg-warning">Diproses</option>
 										<option value="ditolak" class="bg-danger">Ditolak</option>
 									</select>
 								</div>

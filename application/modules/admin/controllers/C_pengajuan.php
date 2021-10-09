@@ -13,19 +13,32 @@ class C_pengajuan extends CI_Controller {
 		$this->load->model('M_admin', 'admin');
 	}
 
-	public function index_diproses()
+	public function index_masuk()
 	{
 		$data = $this->template->adminlte();
-		$data['title'] = 'Pengajuan Diproses';
+		$data['title'] = 'Pengajuan Masuk';
 		$data['js'] = 'js_pengajuan';
-		$data['content'] = 'admin/pengajuan_diproses';
+		$data['content'] = 'admin/pengajuan_masuk';
+		$this->load->view('template/template', $data);
+	}
+
+	public function viewpdf ($file)
+	{
+		if (empty($this->input->get('code'))) {
+			redirect('admin-pengajuan-masuk.html','refresh');
+		}
+		$data = $this->template->adminlte();
+		$data['data'] = $this->admin->get_pengajuan(['tbl_pengajuan.pengajuan_code' => $this->input->get('code')]);
+		$data['title'] = 'Pengajuan Detail';
+		$data['js'] = 'js_pengajuan';
+		$data['content'] = 'admin/pengajuan_detail';
 		$this->load->view('template/template', $data);
 	}
 
 	public function index_diterima()
 	{
 		$data = $this->template->adminlte();
-		$data['title'] = 'Pengajuan Diterima';
+		$data['title'] = 'Pengajuan Diterima / Sah';
 		$data['js'] = 'js_pengajuan';
 		$data['content'] = 'admin/pengajuan_diterima';
 		$this->load->view('template/template', $data);
@@ -40,19 +53,28 @@ class C_pengajuan extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
-	public function index_dipending()
+	public function index_diproses()
 	{
 		$data = $this->template->adminlte();
-		$data['title'] = 'Pengajuan Dipending';
+		$data['title'] = 'Pengajuan Diproses';
 		$data['js'] = 'js_pengajuan';
-		$data['content'] = 'admin/pengajuan_dipending';
+		$data['content'] = 'admin/pengajuan_diproses';
+		$this->load->view('template/template', $data);
+	}
+
+	public function index_daftar()
+	{
+		$data = $this->template->adminlte();
+		$data['title'] = 'Daftar Pengajuan';
+		$data['js'] = 'admin/js_daftar_pengajuan';
+		$data['content'] = 'admin/daftar_pengajuan';
 		$this->load->view('template/template', $data);
 	}
 
 	public function index_detail()
 	{
 		if (empty($this->input->get('code'))) {
-			redirect('admin-pengajuan-diproses.html','refresh');
+			redirect('admin-pengajuan-masuk.html','refresh');
 		}
 		$data = $this->template->adminlte();
 		$data['data'] = $this->admin->get_pengajuan(['tbl_pengajuan.pengajuan_code' => $this->input->get('code')]);
@@ -65,7 +87,7 @@ class C_pengajuan extends CI_Controller {
 	public function index_update()
 	{
 		if (empty($this->input->get('code'))) {
-			redirect('uadmin-pengajuan-diproses.html','refresh');
+			redirect('uadmin-pengajuan-masuk.html','refresh');
 		}
 		$data = $this->template->adminlte();
 		$data['data'] = $this->admin->get_pengajuan(['tbl_pengajuan.pengajuan_code' => $this->input->get('code')]);
@@ -151,18 +173,18 @@ class C_pengajuan extends CI_Controller {
 	public function terima_pengajuan()
 	{
 		$this->template->_is_ajax();
-		$ubah = $this->admin->update('tbl_pengajuan', ['pengajuan_status' => 'diterima'], ['pengajuan_code' => $this->input->post('code')]);
+		$ubah = $this->admin->update('tbl_pengajuan', ['pengajuan_status' => 'diterima/sah'], ['pengajuan_code' => $this->input->post('code')]);
 		if ($ubah) {
 			$response = [
 				'status' => true,
 				'title' => 'Berhasil',
-				'message' => 'Pengajuan telah diterima'
+				'message' => 'Pengajuan telah diterima/sah'
 			];
 		}else{
 			$response = [
 				'status' => false,
 				'title' => 'Gagal',
-				'message' => 'Pengajuan gagal diterima! Silahkan ulangi beberapa saat lagi'
+				'message' => 'Pengajuan gagal terkirim! Silahkan ulangi beberapa saat lagi'
 			];
 		}
 		echo json_encode($response);
@@ -182,7 +204,7 @@ class C_pengajuan extends CI_Controller {
 			'penolakan_tgl' => date('Y-m-d H:i:s')
 		];
 		$cek = $this->admin->get_where_row('tbl_pengajuan', ['pengajuan_code' => $data['pengajuan_code']]);
-		if ($cek['pengajuan_status'] != 'diproses') {
+		if ($cek['pengajuan_status'] != 'masuk') {
 			$response = [
 				'status' => false,
 				'title' => 'Gagal',
@@ -237,7 +259,7 @@ class C_pengajuan extends CI_Controller {
 		}
 		$tolak = $this->admin->insert('tbl_pending', $data);
 		if ($tolak) {
-			$ubah = $this->admin->update('tbl_pengajuan', ['pengajuan_status' => 'dipending'], ['pengajuan_code' => $data['pengajuan_code']]);
+			$ubah = $this->admin->update('tbl_pengajuan', ['pengajuan_status' => 'diproses'], ['pengajuan_code' => $data['pengajuan_code']]);
 			$response = [
 				'status' => true,
 				'title' => 'Berhasil',
@@ -251,7 +273,7 @@ class C_pengajuan extends CI_Controller {
 			];
 		}
 		// $cek = $this->admin->get_where_row('tbl_pengajuan', ['pengajuan_code' => $data['pengajuan_code']]);
-		// if ($cek['pengajuan_status'] != 'diproses') {
+		// if ($cek['pengajuan_status'] != 'masuk') {
 		// 	$response = [
 		// 		'status' => false,
 		// 		'title' => 'Gagal',
