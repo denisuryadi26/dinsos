@@ -79,6 +79,7 @@ $route['admin-daftar-user.html'] = 'admin/C_master/view_user';
 $route['admin-daftar-admin.html'] = 'admin/C_master/view_admin';
 $route['admin-daftar-kecamatan.html'] = 'admin/C_master/view_kecamatan';
 $route['admin-daftar-kelurahan.html'] = 'admin/C_master/view_kelurahan';
+$route['admin-daftar-pengajuan.html'] = 'admin/C_pengajuan/index_daftar';
 $route['admin-pengajuan-diproses.html'] = 'admin/C_pengajuan/index_diproses';
 $route['admin-pengajuan-diterima.html'] = 'admin/C_pengajuan/index_diterima';
 $route['admin-pengajuan-ditolak.html'] = 'admin/C_pengajuan/index_ditolak';
@@ -118,6 +119,7 @@ $route['update-data-kelurahan.json'] = 'admin/C_master/ubah_data_kelurahan';
 $route['delete-data-kelurahan.json'] = 'admin/C_master/hapus_data_kelurahan';
 
 $route['get-all-pengajuan.json'] = 'admin/C_pengajuan/get_all_pengajuan';
+$route['admin-daftar-pengajuan.json'] = 'admin/C_pengajuan/daftar_pengajuan';
 $route['admin-tolak-pengajuan.json'] = 'admin/C_pengajuan/tolak_pengajuan';
 $route['admin-pending-pengajuan.json'] = 'admin/C_pengajuan/pending_pengajuan';
 $route['admin-terima-pengajuan.json'] = 'admin/C_pengajuan/terima_pengajuan';
@@ -140,6 +142,8 @@ $route['user-pengajuan.html'] = 'user/C_pengajuan/index_pengajuan';
 $route['user-pengajuan.html'] = 'user/C_pengajuan/index_pengajuan';
 $route['user-ditolak'] = 'user/C_pengajuan/index_ditolak';
 $route['user-detail-pengajuan.html'] = 'user/C_pengajuan/index_detail';
+$route['user-pending-pengajuan.html'] = 'user/C_pengajuan/index_pending';
+$route['user-ditolak-pengajuan.html'] = 'user/C_pengajuan/index_ditolak';
 $route['user-revisi'] = 'user/C_pengajuan/index_revisi';
 $route['user-revisi.html'] = 'user/C_pengajuan/index_update';
 
