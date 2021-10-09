@@ -9,7 +9,7 @@
 	    });
 
 	    $.ajax({
-			type: "POST",
+			type: "GET",
 			url: base_url + 'user-get-all-formulir.json',
 			processData: false,
 			contentType: false,

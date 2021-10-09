@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Okt 2021 pada 17.25
+-- Waktu pembuatan: 24 Sep 2021 pada 20.13
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 7.3.28
 
@@ -75,10 +75,7 @@ INSERT INTO `tbl_aktifitas` (`aktifitas_id`, `pengajuan_code`, `aktifitas_des`, 
 (12, 'YITBKTHZV9', 'diterima', '2020-10-14 13:25:25'),
 (13, 'GF0E43TJ0B', 'diproses', '2021-05-05 14:26:39'),
 (14, '2NANNR6Y2G', 'diproses', '2021-09-22 18:48:19'),
-(15, 'GF0E43TJ0B', 'ditolak', '2021-09-22 13:49:01'),
-(16, '4N669W3Z6B', 'diproses', '2021-09-27 14:51:05'),
-(17, '4N669W3Z6B', 'diterima', '2021-09-27 13:04:46'),
-(18, 'UI61YOW0P8', 'diproses', '2021-10-01 12:05:46');
+(15, 'GF0E43TJ0B', 'ditolak', '2021-09-22 13:49:01');
 
 -- --------------------------------------------------------
 
@@ -135,23 +132,11 @@ INSERT INTO `tbl_kecamatan` (`kecamatan_id`, `kode_kecamatan`, `nama_kecamatan`,
 
 CREATE TABLE `tbl_kelurahan` (
   `kelurahan_id` int(11) NOT NULL,
-  `kode_kecamatan` varbinary(255) DEFAULT NULL,
   `kode_kelurahan` varchar(255) DEFAULT NULL,
   `nama_kelurahan` varchar(255) DEFAULT NULL,
   `nama_kecamatan` varchar(255) DEFAULT NULL,
   `photo_kelurahan` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tbl_kelurahan`
---
-
-INSERT INTO `tbl_kelurahan` (`kelurahan_id`, `kode_kecamatan`, `kode_kelurahan`, `nama_kelurahan`, `nama_kecamatan`, `photo_kelurahan`) VALUES
-(1, 0x4b4543303035, 'KEL001', 'Kel 1', 'Kec 1', 'Bina_madani1.png'),
-(2, 0x4b4543303031, 'KEL002', 'Kel 2', NULL, 'Bina_madani2.png'),
-(7, 0x4b4543303031, 'KEL003', 'Kel 3', NULL, 'Bina_madani15.png'),
-(8, 0x4b4543303034, 'KEL004', 'Kel 4', 'Kec 1', 'Bina_madani25.png'),
-(9, 0x4b4543303031, 'KEL005', 'Kel 5', NULL, 'Logo_Binamadani6.jpg');
 
 -- --------------------------------------------------------
 
@@ -181,7 +166,6 @@ CREATE TABLE `tbl_pengajuan` (
   `formulir_code` varchar(255) NOT NULL,
   `user_nik` varchar(255) NOT NULL,
   `pengajuan_tgl` datetime NOT NULL DEFAULT current_timestamp(),
-  `tgl_update_pengajual` datetime DEFAULT NULL ON UPDATE current_timestamp(),
   `pengajuan_status` enum('diproses','diterima','ditolak','dipending') NOT NULL DEFAULT 'diproses'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -189,13 +173,11 @@ CREATE TABLE `tbl_pengajuan` (
 -- Dumping data untuk tabel `tbl_pengajuan`
 --
 
-INSERT INTO `tbl_pengajuan` (`pengajuan_id`, `pengajuan_code`, `pengajuan_formulir`, `formulir_code`, `user_nik`, `pengajuan_tgl`, `tgl_update_pengajual`, `pengajuan_status`) VALUES
-(13, 'IIHCGR788S', '93521117_1830266870444135_4100897296059727872_o_(1)1.jpg', 'KIP', '12121212121', '2020-10-02 21:47:18', NULL, 'diterima'),
-(17, 'YITBKTHZV9', 'banner11_(1).png', 'KIS', '12121212121', '2020-10-14 18:24:39', NULL, 'diterima'),
-(18, 'GF0E43TJ0B', 'img-01.jpg', 'JAMPERSAL', '12121212121', '2021-05-05 14:26:39', NULL, 'ditolak'),
-(19, '2NANNR6Y2G', 'SURAT_KETERANGAN.pdf', 'JAMPERSAL', '12345', '2021-09-22 18:48:19', NULL, 'diproses'),
-(20, '4N669W3Z6B', 'Aplikasi_dinsos.pdf', 'JAMPERSAL', '123', '2021-09-27 18:03:56', '2021-09-27 18:04:46', 'diterima'),
-(21, 'UI61YOW0P8', 'Form_Penilaian_Lomba_Virtual.pdf', 'KIP', '123', '2021-10-01 12:05:46', NULL, 'diproses');
+INSERT INTO `tbl_pengajuan` (`pengajuan_id`, `pengajuan_code`, `pengajuan_formulir`, `formulir_code`, `user_nik`, `pengajuan_tgl`, `pengajuan_status`) VALUES
+(13, 'IIHCGR788S', '93521117_1830266870444135_4100897296059727872_o_(1)1.jpg', 'KIP', '12121212121', '2020-10-02 21:47:18', 'diterima'),
+(17, 'YITBKTHZV9', 'banner11_(1).png', 'KIS', '12121212121', '2020-10-14 18:24:39', 'diterima'),
+(18, 'GF0E43TJ0B', 'img-01.jpg', 'JAMPERSAL', '12121212121', '2021-05-05 14:26:39', 'ditolak'),
+(19, '2NANNR6Y2G', 'SURAT_KETERANGAN.pdf', 'JAMPERSAL', '12345', '2021-09-22 18:48:19', 'diproses');
 
 -- --------------------------------------------------------
 
@@ -220,8 +202,7 @@ CREATE TABLE `tbl_pengajuan_detail` (
 INSERT INTO `tbl_pengajuan_detail` (`detail_id`, `pengajuan_code`, `admin_id`, `detail_ket`, `detail_file`, `detail_status`, `detail_tgl`) VALUES
 (2, 'IIHCGR788S', 1, 'Silahkan ambil bantuan anda.', '', 'diterima', '2020-10-02 16:47:45'),
 (6, 'YITBKTHZV9', 1, 'Silahkan ambil berkasnya di kantor pada Hari senin pukul 9 pagi.', '', 'diterima', '2020-10-14 13:25:25'),
-(7, 'GF0E43TJ0B', 1, 'Ga jelas ini', '', 'ditolak', '2021-09-22 13:49:01'),
-(8, '4N669W3Z6B', 1, 'Silahkan lanjutkan', '', 'diterima', '2021-09-27 13:04:46');
+(7, 'GF0E43TJ0B', 1, 'Ga jelas ini', '', 'ditolak', '2021-09-22 13:49:01');
 
 -- --------------------------------------------------------
 
@@ -260,20 +241,18 @@ CREATE TABLE `tbl_user` (
   `user_email` varchar(255) NOT NULL,
   `user_nohp` varchar(255) NOT NULL,
   `user_password` text NOT NULL,
-  `user_foto` varchar(255) NOT NULL DEFAULT 'cowok.png',
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
+  `user_foto` varchar(255) NOT NULL DEFAULT 'cowok.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`user_id`, `user_nik`, `user_instansi`, `user_nama`, `user_tempat`, `user_tanggal`, `user_alamat`, `user_kelamin`, `user_agama`, `user_status`, `user_pekerjaan`, `user_kebangsaan`, `user_email`, `user_nohp`, `user_password`, `user_foto`, `created`, `updated`) VALUES
-(1, '12345', '', 'Updu Tech', 'Karawang', '1998-01-01', 'Bekasi', 'Laki-laki', 'Islam', 'Belum Kawin', 'Mahasiswa', 'Indonesia', 'updu.tech@gmail.com', '085155230104', 'updu123', 'cowok.png', '2021-09-27 14:30:25', NULL),
-(2, '12121212121', '', 'Eka', 'Medan', '2020-10-05', 'Kisaran', 'Perempuan', 'Yahudi', 'Kawin', 'Tukang', 'Indonesia', 'eka@gmail.com', '0823723232833', '12121212121', 'cewek.png', '2021-09-27 14:30:25', NULL),
-(4, '3603182606940001', 'Kel. 1', 'Deni Suryadi', 'Sumedang', '1994-06-26', 'Jl. Kemenangan, Kp. Balong No.22A RT.06/RW.11\r\nBojonggede, Kec. Bojong Gede, Bogor, Jawa Barat', 'Laki-laki', 'Islam', 'Belum Menikah', 'Programmer', 'WNI', 'deni.w4f@gmail.com', '08551607171', 'k5j67k2i', 'cowok.png', '2021-09-27 14:30:25', NULL),
-(5, '123', 'Kel. 1', 'tes', 'asd', '2020-10-05', 'Jl. Kemenangan, Kp. Balong No.22A RT.06/RW.11\r\nBojonggede, Kec. Bojong Gede, Bogor, Jawa Barat', 'Laki-laki', 'Islam', 'Kawin', 'asd2', 'WNI', 'deni.w4f@gmail.com', '08551607171', '123', 'cowok.png', '2021-09-27 14:30:25', '2021-09-27 14:36:28');
+INSERT INTO `tbl_user` (`user_id`, `user_nik`, `user_instansi`, `user_nama`, `user_tempat`, `user_tanggal`, `user_alamat`, `user_kelamin`, `user_agama`, `user_status`, `user_pekerjaan`, `user_kebangsaan`, `user_email`, `user_nohp`, `user_password`, `user_foto`) VALUES
+(1, '12345', '', 'Updu Tech', 'Karawang', '1998-01-01', 'Bekasi', 'Laki-laki', 'Islam', 'Belum Kawin', 'Mahasiswa', 'Indonesia', 'updu.tech@gmail.com', '085155230104', 'updu123', 'cowok.png'),
+(2, '12121212121', '', 'Eka', 'Medan', '2020-10-05', 'Kisaran', 'Perempuan', 'Yahudi', 'Kawin', 'Tukang', 'Indonesia', 'eka@gmail.com', '0823723232833', '12121212121', 'cewek.png'),
+(4, '3603182606940001', 'Kel. 1', 'Deni Suryadi', 'Sumedang', '1994-06-26', 'Jl. Kemenangan, Kp. Balong No.22A RT.06/RW.11\r\nBojonggede, Kec. Bojong Gede, Bogor, Jawa Barat', 'Laki-laki', 'Islam', 'Belum Menikah', 'Programmer', 'WNI', 'deni.w4f@gmail.com', '08551607171', 'k5j67k2i', 'cowok.png'),
+(5, '123', 'Kel. 1', 'tes', 'asd', '2020-10-05', 'Jl. Kemenangan, Kp. Balong No.22A RT.06/RW.11\r\nBojonggede, Kec. Bojong Gede, Bogor, Jawa Barat', 'Laki-laki', 'Islam', 'Kawin', 'asd', 'WNI', 'deni.w4f@gmail.com', '08551607171', '123', 'cowok.png');
 
 --
 -- Indexes for dumped tables
@@ -353,7 +332,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT untuk tabel `tbl_aktifitas`
 --
 ALTER TABLE `tbl_aktifitas`
-  MODIFY `aktifitas_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `aktifitas_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_formulir`
@@ -371,7 +350,7 @@ ALTER TABLE `tbl_kecamatan`
 -- AUTO_INCREMENT untuk tabel `tbl_kelurahan`
 --
 ALTER TABLE `tbl_kelurahan`
-  MODIFY `kelurahan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `kelurahan_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pending`
@@ -383,13 +362,13 @@ ALTER TABLE `tbl_pending`
 -- AUTO_INCREMENT untuk tabel `tbl_pengajuan`
 --
 ALTER TABLE `tbl_pengajuan`
-  MODIFY `pengajuan_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `pengajuan_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pengajuan_detail`
 --
 ALTER TABLE `tbl_pengajuan_detail`
-  MODIFY `detail_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `detail_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_penolakan`

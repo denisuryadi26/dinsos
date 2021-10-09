@@ -19,13 +19,10 @@
 					$.each(result, function (d, data) {
 						let html = '<tr>'+
 							'<td>'+ no +'</td>'+
-							'<td>'+ data['pemohon_nama'] +'</td>'+
-							'<td>'+ data['pemohon_nik'] +'</td>'+
-							'<td>'+ data['formulir_deskripsi'] +'</td>'+
-							// '<td>'+ data['user_nik'] +'</td>'+
-							'<td>'+ data['user_nama'] +'</td>'+
 							'<td>'+ data['pengajuan_code'] +'</td>'+
-							'<td>'+ data['pengajuan_tgl'] +'</td>'+
+							'<td>'+ data['formulir_deskripsi'] +'</td>'+
+							'<td>'+ data['user_nik'] +'</td>'+
+							'<td>'+ data['user_nama'] +'</td>'+
 							'<td>'+ data['pengajuan_status'] +'</td>'+
 						'</tr>';
 						$('#tbl_report').append(html);

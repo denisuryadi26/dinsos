@@ -31,7 +31,7 @@ class C_report extends CI_Controller {
 		$result = $this->admin->report_pengajuan($dari, $sampai, $status);
 		echo json_encode($result);
 		// if ($status == 'semua') {
-		// 	$where = "(tbl_pengajuan.pengajuan_status = 'diproses' OR tbl_pengajuan.pengajuan_status = 'ditolak' OR tbl_pengajuan.pengajuan_status = 'diterima' OR tbl_pengajuan.pengajuan_status = 'diproses') AND DATE_FORMAT(tbl_pengajuan.pengajuan_tgl, '%Y-%m-%d' ) BETWEEN '".$dari."' AND '".$sampai."'";
+		// 	$where = "(tbl_pengajuan.pengajuan_status = 'diproses' OR tbl_pengajuan.pengajuan_status = 'ditolak' OR tbl_pengajuan.pengajuan_status = 'diterima' OR tbl_pengajuan.pengajuan_status = 'dipending') AND DATE_FORMAT(tbl_pengajuan.pengajuan_tgl, '%Y-%m-%d' ) BETWEEN '".$dari."' AND '".$sampai."'";
 		// }else{
 		// 	$where = "tbl_pengajuan.pengajuan_status = '" . $status . "' AND DATE_FORMAT(tbl_pengajuan.pengajuan_tgl, '%Y-%m-%d' ) BETWEEN '".$dari."' AND '".$sampai."'";
 		// }

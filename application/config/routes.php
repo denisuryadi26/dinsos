@@ -79,11 +79,10 @@ $route['admin-daftar-user.html'] = 'admin/C_master/view_user';
 $route['admin-daftar-admin.html'] = 'admin/C_master/view_admin';
 $route['admin-daftar-kecamatan.html'] = 'admin/C_master/view_kecamatan';
 $route['admin-daftar-kelurahan.html'] = 'admin/C_master/view_kelurahan';
-$route['admin-daftar-pengajuan.html'] = 'admin/C_pengajuan/index_daftar';
-$route['admin-pengajuan-masuk.html'] = 'admin/C_pengajuan/index_masuk';
-$route['admin-pengajuan-diterima.html'] = 'admin/C_pengajuan/index_diterima/sah';
-$route['admin-pengajuan-ditolak.html'] = 'admin/C_pengajuan/index_ditolak';
 $route['admin-pengajuan-diproses.html'] = 'admin/C_pengajuan/index_diproses';
+$route['admin-pengajuan-diterima.html'] = 'admin/C_pengajuan/index_diterima';
+$route['admin-pengajuan-ditolak.html'] = 'admin/C_pengajuan/index_ditolak';
+$route['admin-pengajuan-dipending.html'] = 'admin/C_pengajuan/index_dipending';
 $route['admin-pengajuan-detail.html'] = 'admin/C_pengajuan/index_detail';
 $route['admin-pengajuan-revisi.html'] = 'admin/C_pengajuan/index_update';
 $route['admin-pengajuan-report.html'] = 'admin/C_report';
@@ -119,9 +118,8 @@ $route['update-data-kelurahan.json'] = 'admin/C_master/ubah_data_kelurahan';
 $route['delete-data-kelurahan.json'] = 'admin/C_master/hapus_data_kelurahan';
 
 $route['get-all-pengajuan.json'] = 'admin/C_pengajuan/get_all_pengajuan';
-$route['admin-daftar-pengajuan.json'] = 'admin/C_pengajuan/daftar_pengajuan';
 $route['admin-tolak-pengajuan.json'] = 'admin/C_pengajuan/tolak_pengajuan';
-$route['admin-proses-pengajuan.json'] = 'admin/C_pengajuan/proses_pengajuan';
+$route['admin-pending-pengajuan.json'] = 'admin/C_pengajuan/pending_pengajuan';
 $route['admin-terima-pengajuan.json'] = 'admin/C_pengajuan/terima_pengajuan';
 $route['admin-verif-pengajuan.json'] = 'admin/C_pengajuan/verifikasi_pengajuan';
 
@@ -138,12 +136,10 @@ $route['download-file'] = 'admin/C_formulir/download';
 */
 $route['user-dashboard.html'] = 'user/C_pengajuan/index_dashboard';
 $route['user-daftar-pengajuan.html'] = 'user/C_pengajuan/index_daftar';
-// $route['user-pengajuan.html'] = 'user/C_pengajuan/index_pengajuan';
+$route['user-pengajuan.html'] = 'user/C_pengajuan/index_pengajuan';
 $route['user-pengajuan.html'] = 'user/C_pengajuan/index_pengajuan';
 $route['user-ditolak'] = 'user/C_pengajuan/index_ditolak';
 $route['user-detail-pengajuan.html'] = 'user/C_pengajuan/index_detail';
-$route['user-proses-pengajuan.html'] = 'user/C_pengajuan/index_proses';
-$route['user-ditolak-pengajuan.html'] = 'user/C_pengajuan/index_ditolak';
 $route['user-revisi'] = 'user/C_pengajuan/index_revisi';
 $route['user-revisi.html'] = 'user/C_pengajuan/index_update';
 

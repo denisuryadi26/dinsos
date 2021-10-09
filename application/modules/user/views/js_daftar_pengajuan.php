@@ -20,24 +20,24 @@
 				let no = 1;
 				$.each(result['data'], function (d, data) {
 					let status, revisi;
-					if (data['pengajuan_status'] == 'masuk') {
-						status = '<span class="badge bg-primary">'+ data['pengajuan_status'] +'</span>';
+					if (data['pengajuan_status'] == 'diproses') {
+						status = '<span class="badge bg-info">'+ data['pengajuan_status'] +'</span>';
 
-						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-dark">Detail</a>'+
+						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">Detail</a>'+
 							' &nbsp;<a href="user-revisi.html?code='+ data['pengajuan_code'] +'" class="badge bg-success">Revisi</a>';
-					}else if(data['pengajuan_status'] == 'diterima/sah'){
+					}else if(data['pengajuan_status'] == 'diterima'){
 						status = '<span class="badge bg-success">'+ data['pengajuan_status'] +'</span>';
 
-						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-dark">Ambil</a>';
-					}else if(data['pengajuan_status'] == 'diproses'){
+						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">Detail</a>';
+					}else if(data['pengajuan_status'] == 'dipending'){
 						status = '<span class="badge bg-warning">'+ data['pengajuan_status'] +'</span>';
 
-						revisi = '<a href="user-proses-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-dark">Detail</a>';
+						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">Detail</a>';
 					}else{
 						status =
 						'<span class="badge bg-danger">'+ data['pengajuan_status'] +'</span>';
 
-						revisi = '<a href="user-ditolak-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-dark">Detail</a>';
+						revisi = '<a href="user-detail-pengajuan.html?code='+ data['pengajuan_code'] +'" class="badge bg-warning">Detail</a>';
 					}
 
 
@@ -54,13 +54,11 @@
 					// let tahun = (xtahun < 1000)?xtahun + 1900 : xtahun;
 					let hasil = {
 						0: no,
-						1: data['pemohon_nama'],
-						2: data['pemohon_nik'],
-						3: data['pengajuan_code'],
-						4: data['formulir_deskripsi'],
-						5: data['pengajuan_tgl'],
-						6: status,
-						7: revisi
+						1: data['pengajuan_code'],
+						2: data['formulir_deskripsi'],
+						3: data['pengajuan_tgl'],
+						4: status,
+						5: revisi
 					};
 					table.row.add(hasil).draw();
 					no++;

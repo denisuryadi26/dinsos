@@ -20,12 +20,9 @@
 				              <table id="tbl_terima" class="table table-bordered table-hover">
 				              	<thead>
 				              		<th>No</th>
-									<th>Nama</th>
-									<th>NIK</th>
-									<th>Code</th>
+				              		<th>Code</th>
 				              		<th>Tipe</th>
 				              		<th>Tgl Pengajuan</th>
-									<th>QR Code</th>
 				              		<th>#</th>
 				              	</thead>
 				              </table>

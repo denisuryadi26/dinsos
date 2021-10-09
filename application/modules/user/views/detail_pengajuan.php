@@ -32,60 +32,9 @@
 									<a href="<?= base_url() ?>user-download-formulir?file=<?= $data['detail_file'] ?>" class="btn btn-sm btn-warning mt-1">Download file</a>
 									<?php endif ?>
 								</p>
-
-								<div class= "row">
-								<div class= "col-sm-12">
-									
-                                 <table class= "table bodred">
-                                    <tr>
-                                       <th width="150px">Nama Berkas</th>
-									   <th width="30px">:</th>
-									   <th><?= $data['detail_file'] ?></th>
-                                    </tr>
-                                 </table>
-								 </div>
-
-								 <div class="row">
-				<div class="col-12">
-					<div class="table-responsive">
-						<table class="table table-bordered bg-warning">
-							<thead>
-								<tr>
-								<th>Nama</th>
-								<th>NIK</th>
-								<th>Jenis</th>
-								<!-- <th>Desa/Kel</th> -->
-								<th>Code</th>
-				              	<th>Status</th>
-								<!-- <th>Tgl</th> -->
-
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-								    <td><?= $data['pemohon_nama'] ?></td>
-								    <td><?= $data['pemohon_nik'] ?></td>
-									<td><?= $data['formulir_deskripsi'] ?></td>
-									<!-- <td><?= $data['user_nama'] ?></td> -->
-									<td><?= $data['pengajuan_code'] ?></td>
-									<td><button class="btn btn-block btn-small btn-success"><?= $data['pengajuan_status'] ?></td>
-									<!-- <td><?= $data['pengajuan_tgl'] ?></td> -->
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-
-								 <div class= "col-sm-12">
-								 <iframe src="<?= base_url('./uploads/document/') ?><?= $data['detail_file'] ?>" height="600" width="100%" title="Iframe Example"></iframe>
-
-								</div>
-
-                                </div>
 								<p>
-									<?php if ($data['detail_status'] != 'diterima/sah'): ?>
-									<a href="<?= base_url() ?>user-revisi.html?code=<?= $data['pengajuan_code'] ?>" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"><h4> Revisi</h4></a>
+									<?php if ($data['detail_status'] != 'diterima'): ?>
+									<a href="<?= base_url() ?>user-revisi.html?code=<?= $data['pengajuan_code'] ?>" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Revisi</a>
 									<?php endif ?>
 								</p>
 							</div>

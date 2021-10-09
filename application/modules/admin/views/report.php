@@ -24,10 +24,10 @@
 											<select name="status" id="status" class="form-control" required>
 												<option value="">Pilih Status</option>
 												<option value="semua">Semua</option>
-												<option value="masuk">Masuk</option>
-												<option value="ditolak">Ditolak</option>
 												<option value="diproses">Diproses</option>
-												<option value="diterima/sah">diterima/sah</option>
+												<option value="ditolak">Ditolak</option>
+												<option value="dipending">Dipending</option>
+												<option value="diterima">Diterima</option>
 											</select>
 										</div>
 									</div>
@@ -68,13 +68,10 @@
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>Nama Pemohon</th>
-													<th>NIK Pemohon</th>
-													<th>Tipe</th>
-													<!-- <th>NIK</th> -->
-													<th>Desa/Kel</th>
 													<th>Code</th>
-													<th>Tgl</th>
+													<th>Tipe</th>
+													<th>NIK</th>
+													<th>Nama</th>
 													<th>Status</th>
 												</tr>
 											</thead>

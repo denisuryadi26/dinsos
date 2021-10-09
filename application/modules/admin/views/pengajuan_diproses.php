@@ -17,15 +17,12 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="table-responsive">
-				              <table id="tbl_pending" class="table table-bordered table-hover">
+				              <table id="tbl_proses" class="table table-bordered table-hover">
 				              	<thead>
-								  <th>No</th>
-									<th>Nama</th>
-									<th>NIK</th>
-									<th>Code</th>
+				              		<th>No</th>
+				              		<th>Code</th>
 				              		<th>Tipe</th>
 				              		<th>Tgl Pengajuan</th>
-									<th>QR Code</th>
 				              		<th>#</th>
 				              	</thead>
 				              </table>

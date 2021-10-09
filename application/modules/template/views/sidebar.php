@@ -31,26 +31,26 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="<?= base_url() ?>admin-pengajuan-masuk.html" class="nav-link">
-            <i class="nav-icon far fa-circle"></i>
-              <p>File Masuk</p>
+            <a href="<?= base_url() ?>admin-pengajuan-diproses.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Diproses</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="<?= base_url() ?>admin-pengajuan-diterima.html" class="nav-link">
-            <i class="nav-icon far fa-circle text-success"></i>
-              <p>Diterima/sah</p>
+              <i class="far fa-circle nav-icon"></i>
+              <p>Diterima</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url() ?>admin-pengajuan-diproses.html" class="nav-link">
-            <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Sedang Diproses</p>
+            <a href="<?= base_url() ?>admin-pengajuan-dipending.html" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Dipending</p>
             </a>
           </li>
           <li class="nav-item">
             <a href="<?= base_url() ?>admin-pengajuan-ditolak.html" class="nav-link">
-            <i class="nav-icon far fa-circle text-danger"></i>
+              <i class="far fa-circle nav-icon"></i>
               <p>Ditolak</p>
             </a>
           </li>

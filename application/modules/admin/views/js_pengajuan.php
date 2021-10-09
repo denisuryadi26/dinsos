@@ -6,9 +6,9 @@
 		const tbl_pending = $('#tbl_pending').DataTable();
 		const tbl_tolak = $('#tbl_tolak').DataTable();
 
-		tbl_pengajuan('masuk');
-		tbl_pengajuan('diterima/sah');
 		tbl_pengajuan('diproses');
+		tbl_pengajuan('diterima');
+		tbl_pengajuan('dipending');
 		tbl_pengajuan('ditolak');
 
 		function tbl_pengajuan(status) {
@@ -25,26 +25,17 @@
 					$.each(result['data'], function (d, data) {
 						let hasil = {
 							0: no,
-							1: data['pemohon_nama'],
-						    2: data['pemohon_nik'],
-							3: data['pengajuan_code'],
-							4: data['formulir_deskripsi'],
-							5: data['pengajuan_tgl'],
-							6: data,
-							// 1: '<?php
-							//    $kode = $data['pengajuan_code']."/".$data['formulir_deskripsi']."";
-							//    require_once('dinsos1/template/AdminLTE/docs/assets/qrcode/qrlib.php');
-							//    QRcode::png("$kode","kode",".png","M",2,2);
-							//    ?>'
-							   
-							//    img scr="kode<?php $no ?>.png" alt=""
-							7: '<a href="admin-pengajuan-detail.html?code='+ data['pengajuan_code'] +'" class="btn btn-sm btn-info">detail</a>'
+							1: data['pengajuan_code'],
+							2: data['formulir_deskripsi'],
+							3: data['pengajuan_tgl'],
+							4: '<a href="admin-pengajuan-detail.html?code='+ data['pengajuan_code'] +'" class="btn btn-sm btn-info"><i class="fa fa-info-circle"></i></a>'+
+								' &nbsp;<a href="admin-pengajuan-revisi.html?code='+ data['pengajuan_code'] +'" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>'
 						};
-						if (status == 'masuk') {
+						if (status == 'diproses') {
 							tbl_proses.row.add(hasil).draw();
 						}else if (status == 'ditolak'){
 							tbl_tolak.row.add(hasil).draw();
-						}else if (status == 'diproses'){
+						}else if (status == 'dipending'){
 							tbl_pending.row.add(hasil).draw();
 						}else{
 							tbl_terima.row.add(hasil).draw();
@@ -134,7 +125,7 @@
 							text: result['message'],
 							type: 'success',
 						}).then(function () {
-							window.location.href = 'admin-pengajuan-masuk.html';
+							window.location.href = 'admin-pengajuan-diproses.html';
 						});
 					}else{
 						Swal.fire({

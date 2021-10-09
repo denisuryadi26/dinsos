@@ -16,12 +16,10 @@
 	<link href="<?= base_url('template/landing-page/') ?>css/landing-page.min.css" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-light bg-success static-top">
+	<nav class="navbar navbar-light bg-warning static-top">
 		<div class="container">
-			<a class="navbar-brand text-white text-center" href="<?= base_url() ?>landing-page.html">
-			<marquee>SELAMAT DATANG DI APLIKASI SISTEM LAYANAN 
-				KESEJAHTERAAN SOSIAL DINAS SOSIAL KOTA PADANGSIDIMPUAN</marquee></a>
-			<!-- <a class="btn btn-warning" href="<?= base_url() ?>user-login.html">Masuk</a> -->
+			<a class="navbar-brand text-white" href="#">Apps</a>
+			<a class="btn btn-primary" href="<?= base_url() ?>user-login.html">Masuk</a>
 		</div>
 	</nav>
 
@@ -30,14 +28,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-9 mx-auto">
-				
-				<img class="profile-user-img img-fluid img-circle" 
-                       src="<?= base_url('uploads/pictures/logo.png') ?>" class="img-circle elevation-2">
-					   
-					   <a href="<?= base_url() ?>" class="nav-link">
-                    <p><h3>Sistem Aplikasi Layanan Online</h3></p>
-					 <h3 class="text-warning">SALAK MANIS BERDAHAN</h3>
-					<a><p>Sudah mengajukan permohonan ? Cek disini</p></a>
+					<h3 class="">Selamat datang di Sistem Perizinan BC Atambua!</h3>
+					<p>Sudah mengajukan permohonan? Cek disini</p>
 				</div>
 				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
 					<form action="<?= base_url() ?>cek-permohonan.html" method="GET" id="form-cek">
@@ -53,37 +45,26 @@
 				</div>
 			</div>
 		</div>
-		
-	
-	<h3 class="text-warning mt-3">Pengajuan Anda</h3>
-	<p><h5 class="text-light">Dokumen ini terdaftar di Dinas Sosial Kota Padangsidimpuan dengan "status"<h5></p>
-	<!-- <section class="features-icons bg-light" style="margin-top: -70px;"> -->
+	</header>
+	<h3 class="text-center mt-3">Pengajuan Anda</h3>
+	<section class="features-icons bg-light" style="margin-top: -70px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<div class="table-responsive">
-						<table class="table table-bordered bg-warning">
+						<table class="table table-bordered">
 							<thead>
 								<tr>
-								<th>Nama</th>
-								<th>NIK</th>
-								<th>Jenis</th>
-								<th>Desa/Kel</th>
-								<th>Code</th>
-				              	<th>Status</th>
-								<th>Tgl</th>
-
+									<th>Code Pengajuan</th>
+				              		<th>Jenis Pengajuan</th>
+				              		<th>Status</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-								    <td><?= $data['pemohon_nama'] ?></td>
-								    <td><?= $data['pemohon_nik'] ?></td>
-									<td><?= $data['formulir_deskripsi'] ?></td>
-									<td><?= $data['user_nama'] ?></td>
 									<td><?= $data['pengajuan_code'] ?></td>
-									<td><button class="btn btn-block btn-small btn-success"><?= $data['pengajuan_status'] ?></td>
-									<td><?= $data['pengajuan_tgl'] ?></td>
+									<td><?= $data['formulir_deskripsi'] ?></td>
+									<td><?= $data['pengajuan_status'] ?></td>
 								</tr>
 							</tbody>
 						</table>
@@ -91,27 +72,26 @@
 				</div>
 			</div>
 		</div>
-	<!-- </section> -->
-	</header>
+	</section>
+
 	<footer class="footer bg-dark">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-					<p class="text-white small mb-4 mb-lg-0">Copyright-&copy; - DINSOS PSP - 2021</p>
+					<p class="text-muted small mb-4 mb-lg-0">&copy;2019 All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-6 h-100 text-center text-lg-right my-auto">
 					<ul class="list-inline mb-0">
-					<li class="list-inline-item mr-3">
-							<a href="https://dinsos.padangsidimpuankota.com/">
-							<i class="fa fa-globe fa-2x fa-fw"></i>
-							</a>
-						</li>
 						<li class="list-inline-item mr-3">
-							<a href="https://www.facebook.com/Dinsos-psp-104124395351019/">
+							<a href="#">
 							<i class="fab fa-facebook fa-2x fa-fw"></i>
 							</a>
 						</li>
-
+						<li class="list-inline-item mr-3">
+							<a href="#">
+							<i class="fab fa-twitter-square fa-2x fa-fw"></i>
+							</a>
+						</li>
 						<li class="list-inline-item">
 							<a href="#">
 							<i class="fab fa-instagram fa-2x fa-fw"></i>
